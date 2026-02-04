@@ -115,7 +115,7 @@ function initPlayerPage() {
     const audioPlayer = document.getElementById("audio-player");
     if (audioPlayer) {
         const filePart = song.partMap ? song.partMap[part] : part;
-        const audioPath = `../music/${song.folder}/${song.prefix}-${filePart}Dom.mp3`;
+        const audioPath = `https://www.beachfamily.net/mcaa_player/music/${song.folder}/${song.prefix}-${filePart}Dom.mp3`;
         audioPlayer.src = audioPath;
     }
 }
