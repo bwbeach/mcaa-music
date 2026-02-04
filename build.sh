@@ -4,7 +4,7 @@
 set -e
 
 # No-op build for now
-rm -rf build
-cp -r site build
+rm -rf dist
+cp -r site dist
 
 

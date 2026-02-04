@@ -1,2 +1,3 @@
-# Build output directory
+# Build output directories
 build/
+dist/
