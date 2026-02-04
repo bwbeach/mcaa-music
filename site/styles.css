@@ -1,0 +1,109 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #1a1a2e;
+    color: #eee;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #aaa;
+    margin-bottom: 16px;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 18px 24px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background: #4a4a6a;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn:hover {
+    background: #5a5a7a;
+}
+
+.btn:active {
+    background: #3a3a5a;
+}
+
+.btn-back {
+    background: #333;
+    font-size: 1rem;
+    padding: 14px 20px;
+}
+
+.btn-back:hover {
+    background: #444;
+}
+
+.player-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.now-playing {
+    text-align: center;
+}
+
+.now-playing .part {
+    font-size: 1rem;
+    color: #aaa;
+    margin-bottom: 8px;
+}
+
+.now-playing .song {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+audio {
+    width: 100%;
+    max-width: 350px;
+}
+
+.section-label {
+    font-size: 0.9rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 8px;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Now Playing - Maui Choral Arts</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Maui Choral Arts</h1>
+
+        <div class="player-container">
+            <div class="now-playing">
+                <p class="part" id="part-display"></p>
+                <p class="song" id="song-display"></p>
+            </div>
+
+            <audio id="audio-player" controls>
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <a href="songs.html" id="back-link" class="btn btn-back">Back to Songs</a>
+    </div>
+
+    <script src="app.js"></script>
+    <script>initPlayerPage();</script>
+</body>
+</html>
