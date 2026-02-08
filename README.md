@@ -17,14 +17,28 @@ Updates:
  
 ### Setting up R2 Storage
 
-R2
+#### R2
 
  - Turned on R2 storage for my account
  - Created a bucket called `mcaa-music` in the Western North America region.
  - Account id is: `fdd3cf56706534b30dee40ec7465bace`
  - Endpoint is: `https://fdd3cf56706534b30dee40ec7465bace.r2.cloudflarestorage.com` 
  
-Cyberduck to upload files
+#### Cyberduck to upload files
 
  - "Open Connection" didn't work
  - creating a new bookmark did work, using the hostname, access key, and secret
+ 
+#### Cloudflare
+
+Add stanza to `wrangler.jsonc`:
+
+```json
+    "r2_buckets": [
+        {
+            "binding": "music",
+            "bucket_name": "mcaa-music"
+        }
+    ]
+```
+
