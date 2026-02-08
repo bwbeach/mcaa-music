@@ -1,7 +1,11 @@
 {
-    "name": "mcaa-music",
     "compatibility_date": "2026-02-04",
-    "assets": {
-        "directory": "./dist"
-    }
+    "name": "mcaa-music",
+    "pages_build_output_dir": "./dist",
+    "r2_buckets": [
+        {
+            "binding": "music",
+            "bucket_name": "mcaa-music"
+        }
+    ]
 }
