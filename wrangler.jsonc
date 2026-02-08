@@ -3,5 +3,11 @@
     "compatibility_date": "2026-02-04",
     "assets": {
         "directory": "./dist"
-    }
+    },
+    "r2_buckets": [
+        {
+            "binding": "music",
+            "bucket_name": "mcaa-music"
+        }
+    ]
 }
