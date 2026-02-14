@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
 
     <!-- This snippet copied from fonts.google.com -->
@@ -11,19 +11,17 @@
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>{{ voice_part.pretty_name }}</title>
     <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <h1 class="title">Maui Choral Arts</h1>
-        <p class="subtitle">Practice Recordings</p>
+  </head>
+  <body>
+    <h1 class="title">Maui Choral Arts</h1>
+    <p class="subtitle">Practice Recordings</p>
 
-        <p class="section-label">{{ voice_part.pretty_name }}</p>
+    <p class="section-label">{{ voice_part.pretty_name }}</p>
 
-	{% for song in songs %}
-	<a href="{{ song.html_file_name_for_part(voice_part) }}" class="btn">{{ song.pretty_name }}</a>
-	{% endfor %}
+    {% for song in songs %}
+    <a href="{{ song.html_file_name_for_part(voice_part) }}" class="btn">{{ song.pretty_name }}</a>
+    {% endfor %}
 
-        <a href="index.html" id="back-link" class="btn btn-back">Back to Parts</a>
-    </div>
-</body>
+    <a href="index.html" id="back-link" class="btn btn-back">Back to Parts</a>
+  </body>
 </html>

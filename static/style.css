@@ -1,3 +1,17 @@
 body {
+    /**
+     * Font is Roboto everywhere.  Each page has <link>s to load as needed.
+     */
     font-family: Roboto;
+
+    /*
+     * Every page on this site has a very simple layout: a vertical
+     * sequence of things.  The <body> element is a flexbox, and each
+     * of the things in the body is one of the things in the vertical
+     * layout.
+     */
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
 }
