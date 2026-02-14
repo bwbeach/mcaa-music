@@ -23,7 +23,7 @@ class VoicePart:
     """
     Constant structure that holds information about one voice part.
 
-        pretty_name - The same to display to humans
+        pretty_name - The name to display to humans
         file_name - The name to use for files and in URL paths
             (same as pretty_name, but no spaces and all lower case)
         song_names - Possible names to use embedded in song file names
@@ -35,7 +35,7 @@ class VoicePart:
     def __init__(self, pretty_name, primary_song_name):
         self.pretty_name = pretty_name
         self.file_name = pretty_name.replace(" ", "").lower()
-        self.suffixes = [primary_song_name, primary_song_name[:-1]]
+        self.song_names = [primary_song_name, primary_song_name + "a", primary_song_name[:-1]]
 
 
 VOICE_PARTS = [
@@ -50,6 +50,34 @@ VOICE_PARTS = [
 ]
 
 
+class Song:
+    """
+    Constant structure that holds a song's name and all of its music files.
+
+        pretty_name - The name to display to humans.
+    """
+    def __init__(self, camel_case_name, music_files):
+        self.camel_case_name = camel_case_name
+        self.pretty_name = camel_case_name
+        self.file_name = camel_case_name.lower()
+        self.music_files = music_files
+
+    def html_file_name_for_part(self, voice_part):
+        return f"{self.file_name}_{voice_part.file_name}.html"
+
+    def music_path_name_for_part(self, voice_part):
+        return self.camel_case_name + "/" + self.music_file_name_for_part(voice_part)
+
+    def music_file_name_for_part(self, voice_part):
+        for song_name in voice_part.song_names:
+            tag = song_name + "Dom"
+            for music_file in self.music_files:
+                if tag in music_file:
+                    return music_file
+        print(f"No music file found for song {self.camel_case_name} and part {voice_part.pretty_name}", file=sys.stderr)
+        sys.exit(1)
+
+
 def read_json(file_path):
     with open(file_path, "r") as f:
         return json.loads(f.read())
@@ -60,6 +88,7 @@ def render_template(jinja2_env, template_name, data, output_file):
     rendered = template.render(**data)
     with open(output_file, "w") as f:
         f.write(rendered)
+    print("wrote:", output_file)
 
 
 def main():
@@ -88,8 +117,12 @@ def main():
         autoescape=select_autoescape()
     )
 
-    # Extract the names of the songs
+    # Make the list of songs
     song_names = sorted(song_data.keys())
+    songs = [
+        Song(song_name, song_data[song_name])
+        for song_name in song_names
+    ]
 
     # Definitions of variables used by templates
     template_data = dict(
@@ -99,11 +132,28 @@ def main():
 
     # Generate voice part files
     for voice_part in VOICE_PARTS:
+        # Make the page that lists all of the songs for this voice part
         template = jinja2_env.get_template("voice_part.html")
-        data = dict(
-            voice_part=voice_part
+        voice_data = dict(
+            songs=songs,
+            voice_part=voice_part,
         )
-        render_template(jinja2_env, "voice_part.html", data, os.path.join(output_dir, f"{voice_part.file_name}.html"))
+        render_template(jinja2_env, "voice_part.html", voice_data, os.path.join(output_dir, f"{voice_part.file_name}.html"))
+
+        # Make one player page for each song
+        if is_local:
+            music_prefix = "file://" + os.path.abspath("music") + "/"
+        else:
+            music_prefix = "/music/"
+            
+        for song in songs:
+            player_data = dict(
+                music_prefix=music_prefix,
+                voice_part=voice_part,
+                song=song
+            )
+            render_template(jinja2_env, "player.html", player_data, os.path.join(output_dir, song.html_file_name_for_part(voice_part)))
+        
 
 
 if __name__ == "__main__":

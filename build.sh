@@ -11,7 +11,7 @@ mkdir dist
 cp static/* dist
 
 # Generate the generated files
-tools/generate.py data/songs.json templates dist
+tools/generate.py --local data/songs.json templates dist
 
 
 
