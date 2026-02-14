@@ -19,7 +19,7 @@ Usage: get_names.py <musicFolder>
 """
 
 def usage():
-    print(USAGE, file=sys.stdout)
+    print(USAGE, file=sys.stderr)
     sys.exit(1)
 
 
