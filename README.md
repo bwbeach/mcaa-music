@@ -41,6 +41,8 @@ and then to sync them up to the `mcaa-music` bucket in R2.
 
 ### Generating `songs.json`
 
+Run by hand after copying music.
+
  - `tools/get_names.py > data/songs.json`
  - commit the change to git
 
