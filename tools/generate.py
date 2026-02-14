@@ -19,9 +19,47 @@ import sys
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 
+class VoicePart:
+    """
+    Constant structure that holds information about one voice part.
+
+        pretty_name - The same to display to humans
+        file_name - The name to use for files and in URL paths
+            (same as pretty_name, but no spaces and all lower case)
+        song_names - Possible names to use embedded in song file names
+
+    The constructor accepts a primary song name, which is something like
+    "Sop1".  It assumes there just one other name that could be used, and
+    that it's made by dropping the final number.
+    """
+    def __init__(self, pretty_name, primary_song_name):
+        self.pretty_name = pretty_name
+        self.file_name = pretty_name.replace(" ", "").lower()
+        self.suffixes = [primary_song_name, primary_song_name[:-1]]
+
+
+VOICE_PARTS = [
+    VoicePart("Soprano 1", "Sop1"),
+    VoicePart("Soprano 2", "Sop2"),
+    VoicePart("Alto 1", "Alt1"),
+    VoicePart("Alto 2", "Alt2"),
+    VoicePart("Tenor 1", "Ten1"),
+    VoicePart("Tenor 2", "Ten2"),
+    VoicePart("Bass 1", "Bas1"),
+    VoicePart("Bass 2", "Bas2"),
+]
+
+
 def read_json(file_path):
     with open(file_path, "r") as f:
         return json.loads(f.read())
+
+
+def render_template(jinja2_env, template_name, data, output_file):
+    template = jinja2_env.get_template(template_name)
+    rendered = template.render(**data)
+    with open(output_file, "w") as f:
+        f.write(rendered)
 
 
 def main():
@@ -58,6 +96,14 @@ def main():
         is_local=is_local,
         song_names=song_names,
     )
+
+    # Generate voice part files
+    for voice_part in VOICE_PARTS:
+        template = jinja2_env.get_template("voice_part.html")
+        data = dict(
+            voice_part=voice_part
+        )
+        render_template(jinja2_env, "voice_part.html", data, os.path.join(output_dir, f"{voice_part.file_name}.html"))
 
 
 if __name__ == "__main__":
