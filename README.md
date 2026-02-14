@@ -34,6 +34,16 @@ flowchart TD
    generate --> dist
 ```
 
+### Copying music
+
+I use Cyberduck by hand to sync the music files down from Google Drive into the `music` folder,
+and then to sync them up to the `mcaa-music` bucket in R2.
+
+### Generating `songs.json`
+
+ - `tools/get_names.py > data/songs.json`
+ - commit the change to git
+
 ## Development
 
 ### Mermaid Diagrams
@@ -68,6 +78,7 @@ Updates:
 
  - "Open Connection" didn't work
  - creating a new bookmark did work, using the hostname, access key, and secret
+ - using an access key restricted to one bucket didn't work, using one with full access
  
 #### Cloudflare
 
