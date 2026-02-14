@@ -45,6 +45,16 @@ Run by hand after copying music.
 
  - `tools/get_names.py > data/songs.json`
  - commit the change to git
+ 
+### Generating the website
+
+For local development:
+
+ - `./build.sh --local && open dist/index.html`
+ 
+For Cloudflare/Github to run during deployment:
+
+ - `./build.sh`
 
 ## Development
 
