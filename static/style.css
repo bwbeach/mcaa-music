@@ -1,10 +1,33 @@
+/**
+ * Color palatte for both light mode and dark mode.
+ *
+ * This design sticks with the default `background-color` for backgrounds
+ * and `color` for text, so we don't need colors for those.
+ *
+ * Source of info: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/color-scheme
+ */
+:root {
+    color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+	--choice: #e0e0ff;
+    }
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+	--choice: #404060;
+    }
+}
+
 body {
     /**
      * Font is Roboto everywhere.  Each page has <link>s to load as needed.
      */
     font-family: Roboto;
 
-    /*
+    /**
      * Every page on this site has a very simple layout: a vertical
      * sequence of things.  The <body> element is a flexbox, and each
      * of the things in the body is one of the things in the vertical
@@ -14,4 +37,28 @@ body {
     flex-direction: column;
     gap: 1em;
     align-items: center;
+
+    /**
+     * This site is primarily aimed at phones and tablets.  The buttons
+     * and text boxes have a maximum width to match that expectation.
+     */
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/**
+ * The "choice" class is used for the <a> elements that link to the next page.
+ */
+.choice {
+    background-color: var(--choice);
+    width: 100%;
+    text-align: center;
+    padding: 18px 24px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.3rem;
+    font-weight: 500;
+    box-sizing: border-box;
+    color: inherit;
+    text-decoration: none;
 }

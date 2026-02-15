@@ -19,9 +19,9 @@
     <p class="section-label">{{ voice_part.pretty_name }}</p>
 
     {% for song in songs %}
-    <a href="{{ song.html_file_name_for_part(voice_part) }}" class="btn">{{ song.pretty_name }}</a>
+    <a href="{{ song.html_file_name_for_part(voice_part) }}" class="choice">{{ song.pretty_name }}</a>
     {% endfor %}
 
-    <a href="index.html" id="back-link" class="btn btn-back">Back to Parts</a>
+    <a href="index.html" id="back-link" class="choice">Back to Parts</a>
   </body>
 </html>
