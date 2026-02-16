@@ -10,8 +10,12 @@ mkdir dist
 # Copy the static files
 cp static/* dist
 
+# Install `uv` if it doesn't exist.  This is needed in the github action.
+if uv --version; then
+    echo "uv already available"
+else
+    pip install uv
+fi
+    
 # Generate the generated files
 tools/generate.py $* data/songs.json templates dist
-
-
-
