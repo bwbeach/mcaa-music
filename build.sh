@@ -17,5 +17,8 @@ else
     pip install uv
 fi
     
+# Run tests
+uv run --python 3.14 --with jinja2 python -m doctest -v tools/*.py 
+
 # Generate the generated files
 tools/generate.py $* data/songs.json templates dist
