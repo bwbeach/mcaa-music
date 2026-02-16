@@ -19,6 +19,44 @@ import sys
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 
+def camel_case_to_words(camel_case):
+    """Convert a camel-case string into a list of words.
+
+    >>> camel_case_to_words("TheRoadHome")
+    ['The', 'Road', 'Home']
+    >>> camel_case_to_words("AH5_TogetherOnThePorch")
+    ['A', 'H', '5', 'Together', 'On', 'The', 'Porch']
+    """
+    result = []
+    current_word = []
+    for c in camel_case:
+        if c in "_":
+            continue
+        if (c.isupper() or c.isnumeric()) and 0 < len(current_word):
+            result.append("".join(current_word))
+            current_word = []
+        current_word.append(c)
+    if 0 < len(current_word):
+        result.append("".join(current_word))
+    return result
+
+
+def make_pretty_name(camel_case_name):
+    """Convert a song folder name to a displayable name.
+
+    >>> make_pretty_name("TheRoadHome")
+    'The Road Home'
+    >>> make_pretty_name("AH2_NewRoof")
+    'At Home 2: New Roof'
+    """
+    if camel_case_name.startswith("AH"):
+        num = camel_case_name[2]
+        rest = " ".join(camel_case_to_words(camel_case_name[4:]))
+        return f"At Home {num}: {rest}"
+    else:
+        return " ".join(camel_case_to_words(camel_case_name))
+
+
 class VoicePart:
     """
     Constant structure that holds information about one voice part.
@@ -58,7 +96,7 @@ class Song:
     """
     def __init__(self, camel_case_name, music_files):
         self.camel_case_name = camel_case_name
-        self.pretty_name = camel_case_name
+        self.pretty_name = make_pretty_name(camel_case_name)
         self.file_name = camel_case_name.lower()
         self.music_files = music_files
 
