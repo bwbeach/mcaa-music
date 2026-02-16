@@ -15,10 +15,8 @@
   <body>
     <h1 class="title">Maui Choral Arts</h1>
 
-    <div class="now-playing">
-      <p class="part" id="part-display">PART</p>
-      <p class="song" id="song-display">SONG</p>
-    </div>
+    <p>{{ song.pretty_name }}</p>
+    <p>{{ voice_part.pretty_name }}</p>
     
     <audio id="audio-player" controls="" src="{{ music_prefix }}{{ song.music_path_name_for_part(voice_part)  }}">
       Your browser does not support the audio element.
