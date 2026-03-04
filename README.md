@@ -43,7 +43,7 @@ and then to sync them up to the `mcaa-music` bucket in R2.
 
 Run by hand after copying music.
 
- - `tools/get_names.py > data/songs.json`
+ - `tools/get_names.py music/ByPiece music/Pronunciation > data/songs.json`
  - commit the change to git
  
 ### Generating the website

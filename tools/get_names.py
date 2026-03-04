@@ -10,12 +10,15 @@ to the names of all variation files in it.
 """
 
 import json
-import os.path
 import sys
+
+from pathlib import Path
 
 
 USAGE = """
-Usage: get_names.py <musicFolder>
+Usage: get_names.py <music>
+
+Assumes that the music folder contains ByPiece/ and Pronunciation/
 """
 
 def usage():
@@ -23,42 +26,58 @@ def usage():
     sys.exit(1)
 
 
-def get_song_folders(music_folder):
+def get_song_folders(by_piece_folder):
     """Lists all of the song folders under the main music folder.
 
     Yields pairs: (path_to_song_folder, song_folder_name)
     """
-    for song_name in os.listdir(music_folder):
-        song_folder = os.path.join(music_folder, song_name)
-        if not os.path.isdir(song_folder):
-            print(f"'{song_folder}' is not a directory", file = sys.stder())
+    for song_folder in by_piece_folder.iterdir():
+        song_name = song_folder.name
+        if not song_folder.is_dir():
+            print(f"'{song_folder}' is not a directory", file = sys.stderr())
             sys.exit(1)
         yield song_folder, song_name
 
 
-def get_song_files(song_folder):
+def get_song_files(music_folder, song_folder):
     """Lists the song files in one song folder.
     """
-    for song_file in os.listdir(song_folder):
-        song_path = os.path.join(song_folder, song_file)
-        if not os.path.isfile(song_path):
-            print(f"'{song_path} is not a '.mp3' file", song_path)
-        yield song_file
+    for song_file in song_folder.iterdir():
+        if not song_file.is_file() or song_file.suffix != ".mp3":
+            print(f"'{song_file} is not a '.mp3' file", file = sys.stderr())
+            sys.exit(1)
+        yield str(song_file.relative_to(music_folder))
 
         
 def main():
     if len(sys.argv) != 2:
         usage()
         
-    music_folder = sys.argv[1]
-    if not os.path.isdir(music_folder):
-        print(f"'{music_folder}' is not a directory", file=sys.stderr())
+    music_folder = Path(sys.argv[1])
+    by_piece_folder = music_folder.joinpath("ByPiece")
+    pronunciation_folder = music_folder.joinpath("Pronunciation")
+    
+    if not by_piece_folder.is_dir():
+        print(f"'{by_piece_folder}' is not a directory", file=sys.stderr())
         sys.exit(1)
 
-    result = dict(
-        (song_name, list(get_song_files(song_folder)))
-        for (song_folder, song_name) in get_song_folders(music_folder)
+    if not pronunciation_folder.is_dir():
+        print(f"'{pronunciation_folder}' is not a directory", file=sys.stderr())
+        sys.exit(1)
+
+    by_piece = dict(
+        (song_name, list(get_song_files(music_folder, song_folder)))
+        for (song_folder, song_name) in get_song_folders(by_piece_folder)
     )
+    pronunciation = dict(
+        ("Keoni - " + p.stem, [str(p.relative_to(music_folder))])
+        for p in pronunciation_folder.iterdir()
+    )
+
+    result = {}
+    result.update(by_piece)
+    result.update(pronunciation)
+    
     print(json.dumps(result, sort_keys=True, indent=2))
         
     

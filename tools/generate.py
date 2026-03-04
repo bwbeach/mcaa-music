@@ -104,7 +104,7 @@ class Song:
         return f"{self.file_name}_{voice_part.file_name}.html"
 
     def music_path_name_for_part(self, voice_part):
-        return self.camel_case_name + "/" + self.music_file_name_for_part(voice_part)
+        return self.music_file_name_for_part(voice_part)
 
     def music_file_name_for_part(self, voice_part):
         for song_name in voice_part.song_names:
@@ -112,6 +112,8 @@ class Song:
             for music_file in self.music_files:
                 if tag in music_file:
                     return music_file
+        if len(self.music_files) == 1:
+            return self.music_files[0]
         print(f"No music file found for song {self.camel_case_name} and part {voice_part.pretty_name}", file=sys.stderr)
         sys.exit(1)
 
