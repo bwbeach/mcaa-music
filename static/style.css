@@ -13,11 +13,13 @@
 @media (prefers-color-scheme: light) {
     :root {
 	--choice: #e0e0ff;
+	--highlight: #8080cc;
     }
 }
 @media (prefers-color-scheme: dark) {
     :root {
 	--choice: #404060;
+	--highlight: #8080c0;
     }
 }
 
@@ -47,6 +49,35 @@ body {
 }
 
 /**
+ * The "row" class is used for a div holding things to be laid out horizontally.
+ */
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+/**
+ * Speed control: hide the radio button and highlight the label when selected.
+ */
+input[type="radio"][name="speed"] {
+    appearance: none;
+    position: absolute;
+}
+
+label:has(input[type="radio"][name="speed"]) {
+    background-color: var(--choice);
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+label:has(input[type="radio"][name="speed"]:checked) {
+    background-color: var(--highlight);
+    color: white;
+}
+
+/**
  * The "choice" class is used for the <a> elements that link to the next page.
  */
 .choice {
@@ -61,4 +92,13 @@ body {
     box-sizing: border-box;
     color: inherit;
     text-decoration: none;
+}
+
+audio {
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+fieldset {
+    margin-bottom: 2em;
 }

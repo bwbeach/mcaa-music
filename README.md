@@ -4,6 +4,30 @@ Website to access practice recordings for the Maui Choral Arts Association.
 
 The site is hosted at Cloudflare at [mcaa-music.org](https://mcaa-music.org).
 
+## Goals
+
+The primary goal of this website is to be SIMPLE.  We want to make it
+really easy for non-computer-literate people to use it from their phone
+and play the practice recordings.
+
+Secondary goals are to allow people to:
+
+ - Change the playback speed.
+ 
+## Style
+
+The design of the site is simple and consistent.  The flow is a menu
+tree.  The links look like buttons.
+
+Controls for playback also look like buttons.
+
+As much as possible, the site:
+
+ - is purely static HTML, with minimal Javascript
+ - uses semantic HTML elements
+ - avoids extraneous `div` elements
+ - avoids extraneous `class` attributes
+
 ## Data Flow
 
 The music is kept in MCAA's Google Drive.  The code and related files, such as 
