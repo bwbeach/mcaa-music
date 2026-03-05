@@ -18,8 +18,9 @@
   <body>
     <h1 class="title">Maui Choral Arts</h1>
 
-    <p>{{ song.pretty_name }}</p>
-    <p>{{ voice_part.pretty_name }}</p>
+    <h2>{{ voice_part.pretty_name }}</h2>
+    <h3>{{ song.pretty_name }}</h3>
+
     <audio id="audio-player" controls="" src="{{ music_prefix }}{{ song.music_path_name_for_part(voice_part)  }}">
       Your browser does not support the audio element.
     </audio>
@@ -31,7 +32,7 @@
       <label> <input type="radio" name="speed" value="100" checked="true"> 100% </label>
     </fieldset>
 
-    <a href="{{ voice_part.file_name }}.html" id="back-link" class="btn btn-back">Back to Songs</a>
+    <a href="{{ voice_part.file_name }}.html" id="back-link" class="choice">Back to Songs</a>
 
     <script>
       const audio = document.getElementById('audio-player');
