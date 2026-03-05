@@ -47,6 +47,15 @@ body {
 }
 
 /**
+ * The "row" class is used for a div holding things to be laid out horizontally.
+ */
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+/**
  * The "choice" class is used for the <a> elements that link to the next page.
  */
 .choice {

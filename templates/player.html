@@ -24,6 +24,24 @@
       Your browser does not support the audio element.
     </audio>
 
+    <fieldset class="row">
+      <legend>Play Speed</legend>
+      <label> <input type="radio" name="speed" value="75"> 75% </label>
+      <label> <input type="radio" name="speed" value="90"> 90% </label>
+      <label> <input type="radio" name="speed" value="100" checked="true"> 100% </label>
+    </fieldset>
+
     <a href="{{ voice_part.file_name }}.html" id="back-link" class="btn btn-back">Back to Songs</a>
+
+    <script>
+      const audio = document.getElementById('audio-player');
+      document.querySelectorAll('input[name="speed"]').forEach(function(radio) {
+          radio.addEventListener('change', function() {
+	      const rate = Number(this.value) / 100;
+              audio.playbackRate = rate;
+	      console.log("Setting playback rate", rate);
+          });
+      });
+    </script>
   </body>
 </html>
