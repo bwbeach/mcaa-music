@@ -35,13 +35,14 @@
 
     <script>
       const audio = document.getElementById('audio-player');
-      document.querySelectorAll('input[name="speed"]').forEach(function(radio) {
-          radio.addEventListener('change', function() {
-	      const rate = Number(this.value) / 100;
-              audio.playbackRate = rate;
-	      console.log("Setting playback rate", rate);
-          });
-      });
+      document.querySelectorAll('input[name="speed"]').forEach(
+	  function(radio) {
+              radio.addEventListener('change', function() {
+		  const rate = Number(this.value) / 100;
+		  audio.playbackRate = rate;
+              });
+	  }
+      );
     </script>
   </body>
 </html>

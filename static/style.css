@@ -13,11 +13,13 @@
 @media (prefers-color-scheme: light) {
     :root {
 	--choice: #e0e0ff;
+	--highlight: #8080cc;
     }
 }
 @media (prefers-color-scheme: dark) {
     :root {
 	--choice: #404060;
+	--highlight: #8080c0;
     }
 }
 
@@ -53,6 +55,26 @@ body {
     display: flex;
     flex-direction: row;
     gap: 1em;
+}
+
+/**
+ * Speed control: hide the radio button and highlight the label when selected.
+ */
+input[type="radio"][name="speed"] {
+    appearance: none;
+    position: absolute;
+}
+
+label:has(input[type="radio"][name="speed"]) {
+    background-color: var(--choice);
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+label:has(input[type="radio"][name="speed"]:checked) {
+    background-color: var(--highlight);
+    color: white;
 }
 
 /**
