@@ -97,17 +97,36 @@
     "ByPiece/ItsARepublicIfYouCanKeepIt/ItsARepublicIfYouCanKeepIt-Alt1Dom.mp3",
     "ByPiece/ItsARepublicIfYouCanKeepIt/ItsARepublicIfYouCanKeepIt-Sop2Mute.mp3"
   ],
-  "Keoni - Ka Nohona Pilikai": [
-    "Pronunciation/Ka Nohona Pilikai.mp3"
+  "Ka Nohona Pilikai - Diction": [
+    "Diction/Ka Nohona Pilikai.mp3"
   ],
-  "Keoni - Kilakila Haleakal\u0101": [
-    "Pronunciation/Kilakila Haleakal\u0101.mp3"
+  "Kilakila Haleakal\u0101 - Diction": [
+    "Diction/Kilakila Haleakal\u0101.mp3"
   ],
-  "Keoni - Manu Kapalulu": [
-    "Pronunciation/Manu Kapalulu.mp3"
+  "Komo Mai Kau Mapuna Hoe": [
+    "ByPiece/Komo Mai Kau Mapuna Hoe/Komo Mai K\u0101u M\u0101puna Hoe ALTO.mp3",
+    "ByPiece/Komo Mai Kau Mapuna Hoe/Komo Mai K\u0101u M\u0101puna Hoe TENOR.mp3",
+    "ByPiece/Komo Mai Kau Mapuna Hoe/Komo Mai K\u0101u M\u0101puna Hoe SOP.mp3",
+    "ByPiece/Komo Mai Kau Mapuna Hoe/Kom Mai K\u0101u M\u0101puna Hoe BASS.mp3"
   ],
-  "Keoni - \u02bbO Makalapua": [
-    "Pronunciation/\u02bbO Makalapua.mp3"
+  "Maikai Ka Makani o Kohala": [
+    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani T2.mp3",
+    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani A2.mp3",
+    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani T1.mp3",
+    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani A1.mp3",
+    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani S2.mp3",
+    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani S1.mp3",
+    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani B1.mp3",
+    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani B2.mp3"
+  ],
+  "Manu Kapalulu - Diction": [
+    "Diction/Manu Kapalulu.mp3"
+  ],
+  "O Makalapua": [
+    "ByPiece/O Makalapua/\u2018O Makalapua TENOR.mp3",
+    "ByPiece/O Makalapua/\u2018O Makalapua ALTO.mp3",
+    "ByPiece/O Makalapua/\u2018O Makalapua SOP.mp3",
+    "ByPiece/O Makalapua/\u2018O Makalapua BASS.mp3"
   ],
   "SureOnThisShiningNight": [
     "ByPiece/SureOnThisShiningNight/SureOnThisShiningNight-Alt2Mute.mp3",
@@ -163,5 +182,8 @@
     "ByPiece/TheresGonnaBeAHomeComin/TheresGonnaBeAHomeComin-Sop1bDom.mp3",
     "ByPiece/TheresGonnaBeAHomeComin/TheresGonnaBeAHomeComin-Sop2Mute.mp3",
     "ByPiece/TheresGonnaBeAHomeComin/TheresGonnaBeAHomeComin-Sop1bMute.mp3"
+  ],
+  "\u02bbO Makalapua - Diction": [
+    "Diction/\u02bbO Makalapua.mp3"
   ]
 }

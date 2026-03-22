@@ -16,9 +16,9 @@ from pathlib import Path
 
 
 USAGE = """
-Usage: get_names.py <music>
+Usage: get_names.py <musicFolder>
 
-Assumes that the music folder contains ByPiece/ and Pronunciation/
+Assumes that the music folder contains ByPiece/ and Diction/
 """
 
 def usage():
@@ -55,28 +55,29 @@ def main():
         
     music_folder = Path(sys.argv[1])
     by_piece_folder = music_folder.joinpath("ByPiece")
-    pronunciation_folder = music_folder.joinpath("Pronunciation")
+    diction_folder = music_folder.joinpath("Diction")
     
     if not by_piece_folder.is_dir():
         print(f"'{by_piece_folder}' is not a directory", file=sys.stderr())
         sys.exit(1)
 
-    if not pronunciation_folder.is_dir():
-        print(f"'{pronunciation_folder}' is not a directory", file=sys.stderr())
+    if not diction_folder.is_dir():
+        print(f"'{diction_folder}' is not a directory", file=sys.stderr())
         sys.exit(1)
 
     by_piece = dict(
         (song_name, list(get_song_files(music_folder, song_folder)))
         for (song_folder, song_name) in get_song_folders(by_piece_folder)
     )
-    pronunciation = dict(
-        ("Keoni - " + p.stem, [str(p.relative_to(music_folder))])
-        for p in pronunciation_folder.iterdir()
+    diction = dict(
+        (p.stem + " - Diction", [str(p.relative_to(music_folder))])
+        for p in diction_folder.iterdir()
+        if p.is_file()
     )
 
     result = {}
     result.update(by_piece)
-    result.update(pronunciation)
+    result.update(diction)
     
     print(json.dumps(result, sort_keys=True, indent=2))
         
