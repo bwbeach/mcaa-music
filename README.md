@@ -67,7 +67,7 @@ and then to sync them up to the `mcaa-music` bucket in R2.
 
 Run by hand after copying music.
 
- - `tools/get_names.py music/ByPiece music/Pronunciation > data/songs.json`
+ - `tools/get_names.py music > data/songs.json`
  - commit the change to git
  
 ### Generating the website
@@ -107,8 +107,10 @@ Updates:
 
  - Turned on R2 storage for my account
  - Created a bucket called `mcaa-music` in the Western North America region.
+ - Create an access key with read/write access to the one bucket
  - Account id is: `fdd3cf56706534b30dee40ec7465bace`
  - Endpoint is: `https://fdd3cf56706534b30dee40ec7465bace.r2.cloudflarestorage.com` 
+ - Set path to `mcaa-music` (no leading `/`)
  
 #### Cyberduck to upload files
 

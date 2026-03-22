@@ -70,21 +70,21 @@ class VoicePart:
     "Sop1".  It assumes there just one other name that could be used, and
     that it's made by dropping the final number.
     """
-    def __init__(self, pretty_name, primary_song_name):
+    def __init__(self, pretty_name, song_suffixes):
         self.pretty_name = pretty_name
         self.file_name = pretty_name.replace(" ", "").lower()
-        self.song_names = [primary_song_name, primary_song_name + "a", primary_song_name[:-1]]
+        self.song_suffixes = song_suffixes
 
 
 VOICE_PARTS = [
-    VoicePart("Soprano 1", "Sop1"),
-    VoicePart("Soprano 2", "Sop2"),
-    VoicePart("Alto 1", "Alt1"),
-    VoicePart("Alto 2", "Alt2"),
-    VoicePart("Tenor 1", "Ten1"),
-    VoicePart("Tenor 2", "Ten2"),
-    VoicePart("Bass 1", "Bas1"),
-    VoicePart("Bass 2", "Bas2"),
+    VoicePart("Soprano 1", ["Sop1Dom", "SopDom", "Sop1aDom", "S1", "SOP"]),
+    VoicePart("Soprano 2", ["Sop2Dom", "SopDom", "Sop2aDom", "S2", "SOP"]),
+    VoicePart("Alto 1", ["Alt1Dom", "AltDom", "A1", "ALTO"]),
+    VoicePart("Alto 2", ["Alt2Dom", "AltDom", "A2", "ALTO"]),
+    VoicePart("Tenor 1", ["Ten1Dom", "TenDom", "T1", "TENOR"]),
+    VoicePart("Tenor 2", ["Ten2Dom", "TenDom", "T2", "TENOR"]),
+    VoicePart("Bass 1", ["Bas1Dom", "BasDom", "B1", "BASS"]),
+    VoicePart("Bass 2", ["Bas2Dom", "BasDom", "B2", "BASS"]),
 ]
 
 
@@ -107,10 +107,9 @@ class Song:
         return self.music_file_name_for_part(voice_part)
 
     def music_file_name_for_part(self, voice_part):
-        for song_name in voice_part.song_names:
-            tag = song_name + "Dom"
+        for suffix in voice_part.song_suffixes:
             for music_file in self.music_files:
-                if tag in music_file:
+                if (suffix + ".") in music_file:
                     return music_file
         if len(self.music_files) == 1:
             return self.music_files[0]
