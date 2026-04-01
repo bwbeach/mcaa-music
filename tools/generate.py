@@ -85,6 +85,7 @@ VOICE_PARTS = [
     VoicePart("Tenor 2", ["Ten2Dom", "TenDom", "T2", "TENOR"]),
     VoicePart("Bass 1", ["Bas1Dom", "BasDom", "B1", "BASS"]),
     VoicePart("Bass 2", ["Bas2Dom", "BasDom", "B2", "BASS"]),
+    VoicePart("All Voices", ["Bal"]),
 ]
 
 
@@ -101,7 +102,8 @@ class Song:
         self.music_files = music_files
 
     def html_file_name_for_part(self, voice_part):
-        return f"{self.file_name}_{voice_part.file_name}.html"
+        if self.music_file_name_for_part(voice_part):
+            return f"{self.file_name}_{voice_part.file_name}.html"
 
     def music_path_name_for_part(self, voice_part):
         return self.music_file_name_for_part(voice_part)
@@ -113,8 +115,7 @@ class Song:
                     return music_file
         if len(self.music_files) == 1:
             return self.music_files[0]
-        print(f"No music file found for song {self.camel_case_name} and part {voice_part.pretty_name}", file=sys.stderr)
-        sys.exit(1)
+        return None
 
 
 def read_json(file_path):
@@ -186,12 +187,13 @@ def main():
             music_prefix = "/music/"
             
         for song in songs:
-            player_data = dict(
-                music_prefix=music_prefix,
-                voice_part=voice_part,
-                song=song
-            )
-            render_template(jinja2_env, "player.html", player_data, os.path.join(output_dir, song.html_file_name_for_part(voice_part)))
+            if song.html_file_name_for_part(voice_part):
+                player_data = dict(
+                    music_prefix=music_prefix,
+                    voice_part=voice_part,
+                    song=song
+                )
+                render_template(jinja2_env, "player.html", player_data, os.path.join(output_dir, song.html_file_name_for_part(voice_part)))
         
 
 
