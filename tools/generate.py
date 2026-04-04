@@ -18,6 +18,12 @@ import sys
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
+VOICE_SONG_NOTES = {
+    "Komo Mai Kau Mapuna Hoe" : {
+        "All Voices" : "This is a recording from rehearsal on March 31, starting at measure 46."
+    }
+}
+
 
 def camel_case_to_words(camel_case):
     """Convert a camel-case string into a list of words.
@@ -26,16 +32,19 @@ def camel_case_to_words(camel_case):
     ['The', 'Road', 'Home']
     >>> camel_case_to_words("AH5_TogetherOnThePorch")
     ['A', 'H', '5', 'Together', 'On', 'The', 'Porch']
+    >>> camel_case_to_words("Komo Mai")
+    ['Komo', 'Mai']
     """
     result = []
     current_word = []
     for c in camel_case:
         if c in "_":
             continue
-        if (c.isupper() or c.isnumeric()) and 0 < len(current_word):
+        if (c.isupper() or c.isnumeric() or c.isspace()) and 0 < len(current_word):
             result.append("".join(current_word))
             current_word = []
-        current_word.append(c)
+        if not c.isspace():
+            current_word.append(c)
     if 0 < len(current_word):
         result.append("".join(current_word))
     return result
@@ -77,14 +86,14 @@ class VoicePart:
 
 
 VOICE_PARTS = [
-    VoicePart("Soprano 1", ["Sop1Dom", "SopDom", "Sop1aDom", "S1", "SOP"]),
-    VoicePart("Soprano 2", ["Sop2Dom", "SopDom", "Sop2aDom", "S2", "SOP"]),
-    VoicePart("Alto 1", ["Alt1Dom", "AltDom", "A1", "ALTO"]),
-    VoicePart("Alto 2", ["Alt2Dom", "AltDom", "A2", "ALTO"]),
-    VoicePart("Tenor 1", ["Ten1Dom", "TenDom", "T1", "TENOR"]),
-    VoicePart("Tenor 2", ["Ten2Dom", "TenDom", "T2", "TENOR"]),
-    VoicePart("Bass 1", ["Bas1Dom", "BasDom", "B1", "BASS"]),
-    VoicePart("Bass 2", ["Bas2Dom", "BasDom", "B2", "BASS"]),
+    VoicePart("Soprano 1", ["Sop1Dom", "SopDom", "Sop1aDom", "S1", "SOP", "Bal"]),
+    VoicePart("Soprano 2", ["Sop2Dom", "SopDom", "Sop2aDom", "S2", "SOP", "Bal"]),
+    VoicePart("Alto 1", ["Alt1Dom", "AltDom", "A1", "ALTO", "Bal"]),
+    VoicePart("Alto 2", ["Alt2Dom", "AltDom", "A2", "ALTO", "Bal"]),
+    VoicePart("Tenor 1", ["Ten1Dom", "TenDom", "T1", "TENOR", "Bal"]),
+    VoicePart("Tenor 2", ["Ten2Dom", "TenDom", "T2", "TENOR", "Bal"]),
+    VoicePart("Bass 1", ["Bas1Dom", "BasDom", "B1", "BASS", "Bal"]),
+    VoicePart("Bass 2", ["Bas2Dom", "BasDom", "B2", "BASS", "Bal"]),
     VoicePart("All Voices", ["Bal"]),
 ]
 
@@ -185,15 +194,30 @@ def main():
             music_prefix = "file://" + os.path.abspath("music") + "/"
         else:
             music_prefix = "/music/"
-            
+
+        notes_used = set()
         for song in songs:
             if song.html_file_name_for_part(voice_part):
+                notes = VOICE_SONG_NOTES.get(song.pretty_name, {}).get(voice_part.pretty_name)
+                if notes:
+                    notes_used.add((song.pretty_name, voice_part.pretty_name))
                 player_data = dict(
                     music_prefix=music_prefix,
                     voice_part=voice_part,
-                    song=song
+                    song=song,
+                    notes=notes,
                 )
                 render_template(jinja2_env, "player.html", player_data, os.path.join(output_dir, song.html_file_name_for_part(voice_part)))
+
+    all_notes = set(
+        (song_name, voice_name)
+        for song_name, voices in VOICE_SONG_NOTES.items()
+        for voice_name in voices.keys()
+    )
+    unused_notes = all_notes - notes_used
+    if unused_notes:
+        print("Unused notes:", unused_notes)
+        raise Exception("Some notes were unused")
         
 
 

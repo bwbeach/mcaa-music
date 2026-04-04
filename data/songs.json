@@ -65,6 +65,12 @@
     "ByPiece/AH5_TogetherOnThePorch/AH5_TogetherOnThePorch-TenDom.mp3",
     "ByPiece/AH5_TogetherOnThePorch/AH5_TogetherOnThePorch-Bal.mp3"
   ],
+  "Hawai'i Aloha": [
+    "ByPiece/Hawai'i Aloha/Hawai'i Aloha-Bal.mp3"
+  ],
+  "HoleWaimea": [
+    "ByPiece/HoleWaimea/HoleWaimea-Bal.mp3"
+  ],
   "Home": [
     "ByPiece/Home/Home-Sop1Mute.mp3",
     "ByPiece/Home/Home-Acc.mp3",
@@ -100,14 +106,29 @@
   "Ka Nohona Pilikai - Diction": [
     "Diction/Ka Nohona Pilikai.mp3"
   ],
+  "KaNohonaPiliKai": [
+    "ByPiece/KaNohonaPiliKai/KaNohonaPiliKai-Dict.mp3",
+    "ByPiece/KaNohonaPiliKai/KaNohonaPiliKai-Bal.mp3"
+  ],
   "Kilakila Haleakal\u0101 - Diction": [
     "Diction/Kilakila Haleakal\u0101.mp3"
   ],
   "Komo Mai Kau Mapuna Hoe": [
+    "ByPiece/Komo Mai Kau Mapuna Hoe/Komo Mai K\u0101u M\u0101puna Hoe-AltDom.mp3",
+    "ByPiece/Komo Mai Kau Mapuna Hoe/Komo Mai K\u0101u M\u0101puna Hoe-TenDom.mp3",
+    "ByPiece/Komo Mai Kau Mapuna Hoe/Komo Mai K\u0101u M\u0101puna Hoe from 46-Bal.mp3",
     "ByPiece/Komo Mai Kau Mapuna Hoe/Komo Mai K\u0101u M\u0101puna Hoe ALTO.mp3",
     "ByPiece/Komo Mai Kau Mapuna Hoe/Komo Mai K\u0101u M\u0101puna Hoe TENOR.mp3",
+    "ByPiece/Komo Mai Kau Mapuna Hoe/Komo Mai K\u0101u M\u0101puna Hoe-SopDom.mp3",
+    "ByPiece/Komo Mai Kau Mapuna Hoe/Komo Mai K\u0101u M\u0101puna Hoe-BasDom.mp3",
     "ByPiece/Komo Mai Kau Mapuna Hoe/Komo Mai K\u0101u M\u0101puna Hoe SOP.mp3",
     "ByPiece/Komo Mai Kau Mapuna Hoe/Kom Mai K\u0101u M\u0101puna Hoe BASS.mp3"
+  ],
+  "KuuPuaIPaoakalani": [
+    "ByPiece/KuuPuaIPaoakalani/KuuPuaIPaoakalani-Bal.mp3"
+  ],
+  "LikoPuaLehua": [
+    "ByPiece/LikoPuaLehua/LikoPuaLehua-Bal.mp3"
   ],
   "Maikai Ka Makani o Kohala": [
     "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani T2.mp3",
@@ -115,18 +136,52 @@
     "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani T1.mp3",
     "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani A1.mp3",
     "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani S2.mp3",
+    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani-Bas1Dom.mp3",
     "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani S1.mp3",
+    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani-Alt1Dom.mp3",
+    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani-Sop1Dom.mp3",
+    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani-Ten1Dom.mp3",
+    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani-Alt2Dom.mp3",
     "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani B1.mp3",
-    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani B2.mp3"
+    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani-Ten2Dom.mp3",
+    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani-Sop2Dom.mp3",
+    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani B2.mp3",
+    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani-Bal.mp3",
+    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani-Bas2Dom.mp3"
   ],
   "Manu Kapalulu - Diction": [
     "Diction/Manu Kapalulu.mp3"
   ],
+  "ManuKapalulu": [
+    "ByPiece/ManuKapalulu/ManuKapalulu-Bas1Dom.mp3",
+    "ByPiece/ManuKapalulu/ManuKapalulu-Dict.mp3",
+    "ByPiece/ManuKapalulu/ManuKapalulu-Ten1Dom.mp3",
+    "ByPiece/ManuKapalulu/ManuKapalulu-Bal.mp3",
+    "ByPiece/ManuKapalulu/ManuKapalulu-Bas2Mute.mp3",
+    "ByPiece/ManuKapalulu/ManuKapalulu-Ten2Mute.mp3",
+    "ByPiece/ManuKapalulu/ManuKapalulu-Ten2Dom.mp3",
+    "ByPiece/ManuKapalulu/ManuKapalulu-SopDom.mp3",
+    "ByPiece/ManuKapalulu/ManuKapalulu-Bas2Dom.mp3",
+    "ByPiece/ManuKapalulu/ManuKapalulu-AltMute.mp3",
+    "ByPiece/ManuKapalulu/ManuKapalulu-SopMute.mp3",
+    "ByPiece/ManuKapalulu/ManuKapalulu-Ten1Mute.mp3",
+    "ByPiece/ManuKapalulu/ManuKapalulu-Bas1Mute.mp3",
+    "ByPiece/ManuKapalulu/ManuKapalulu-AltDom.mp3"
+  ],
+  "N\u0101molokama L\u0101": [
+    "ByPiece/N\u0101molokama L\u0101/N\u0101molokama L\u0101-Bal.mp3"
+  ],
   "O Makalapua": [
+    "ByPiece/O Makalapua/O Makalapua-BasDom.mp3",
     "ByPiece/O Makalapua/\u2018O Makalapua TENOR.mp3",
     "ByPiece/O Makalapua/\u2018O Makalapua ALTO.mp3",
     "ByPiece/O Makalapua/\u2018O Makalapua SOP.mp3",
-    "ByPiece/O Makalapua/\u2018O Makalapua BASS.mp3"
+    "ByPiece/O Makalapua/O Makalapua-Dict.mp3",
+    "ByPiece/O Makalapua/O Makalapua-SopDom.mp3",
+    "ByPiece/O Makalapua/O Makalapua-Bal.mp3",
+    "ByPiece/O Makalapua/\u2018O Makalapua BASS.mp3",
+    "ByPiece/O Makalapua/O Makalapua-TenDom.mp3",
+    "ByPiece/O Makalapua/O Makalapua-AltDom.mp3"
   ],
   "SureOnThisShiningNight": [
     "ByPiece/SureOnThisShiningNight/SureOnThisShiningNight-Alt2Mute.mp3",
