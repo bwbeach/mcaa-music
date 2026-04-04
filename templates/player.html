@@ -20,6 +20,9 @@
 
     <h2>{{ voice_part.pretty_name }}</h2>
     <h3>{{ song.pretty_name }}</h3>
+    {% if notes %}
+    <p>{{ notes }}</p>
+    {% endif %}
 
     <audio id="audio-player" controls="" src="{{ music_prefix }}{{ song.music_path_name_for_part(voice_part)  }}">
       Your browser does not support the audio element.
