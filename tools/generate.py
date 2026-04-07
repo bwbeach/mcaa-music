@@ -21,7 +21,15 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 VOICE_SONG_NOTES = {
     "Komo Mai Kau Mapuna Hoe" : {
         "All Voices" : "This is a recording from rehearsal on March 31, starting at measure 46."
-    }
+    },
+    "Ka Nohona Pili Kai": {
+        "Alto 1" : "Recording from March 31 sectional",
+        "Alto 2" : "Recording from March 31 sectional",
+    },
+    "Maikai Ka Makani o Kohala": {
+        "Alto 1" : "Recording from March 31 sectional",
+        "Alto 2" : "Recording from March 31 sectional",
+    },
 }
 
 
@@ -88,8 +96,8 @@ class VoicePart:
 VOICE_PARTS = [
     VoicePart("Soprano 1", ["Sop1Dom", "SopDom", "Sop1aDom", "S1", "SOP", "Bal"]),
     VoicePart("Soprano 2", ["Sop2Dom", "SopDom", "Sop2aDom", "S2", "SOP", "Bal"]),
-    VoicePart("Alto 1", ["Alt1Dom", "AltDom", "A1", "ALTO", "Bal"]),
-    VoicePart("Alto 2", ["Alt2Dom", "AltDom", "A2", "ALTO", "Bal"]),
+    VoicePart("Alto 1", ["ALTO_sung", "Alt1Dom", "AltDom", "A1", "ALTO", "Bal"]),
+    VoicePart("Alto 2", ["ALTO_sung", "Alt2Dom", "AltDom", "A2", "ALTO", "Bal"]),
     VoicePart("Tenor 1", ["Ten1Dom", "TenDom", "T1", "TENOR", "Bal"]),
     VoicePart("Tenor 2", ["Ten2Dom", "TenDom", "T2", "TENOR", "Bal"]),
     VoicePart("Bass 1", ["Bas1Dom", "BasDom", "B1", "BASS", "Bal"]),
@@ -179,7 +187,21 @@ def main():
         song_names=song_names,
     )
 
+    pretty_voice_parts = list(
+        voice_part.pretty_name
+        for voice_part in VOICE_PARTS
+    )
+    pretty_songs = list(
+        song.pretty_name
+        for song in songs
+    )
+    for s, d in VOICE_SONG_NOTES.items():
+        assert s in pretty_songs, f"song name in notes not found: {repr(s)}"
+        for vp in d.keys():
+            assert vp in pretty_voice_parts, f"voice part in notes not found: {repr(vp)}"
+
     # Generate voice part files
+    notes_used = set()
     for voice_part in VOICE_PARTS:
         # Make the page that lists all of the songs for this voice part
         template = jinja2_env.get_template("voice_part.html")
@@ -195,7 +217,6 @@ def main():
         else:
             music_prefix = "/music/"
 
-        notes_used = set()
         for song in songs:
             if song.html_file_name_for_part(voice_part):
                 notes = VOICE_SONG_NOTES.get(song.pretty_name, {}).get(voice_part.pretty_name)
