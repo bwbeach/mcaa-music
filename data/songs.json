@@ -68,8 +68,14 @@
   "Hawai'i Aloha": [
     "ByPiece/Hawai'i Aloha/Hawai'i Aloha-Bal.mp3"
   ],
+  "Hawai\u02bbi_Aloha - Diction": [
+    "Diction/Hawai\u02bbi_Aloha.mp3"
+  ],
   "HoleWaimea": [
     "ByPiece/HoleWaimea/HoleWaimea-Bal.mp3"
+  ],
+  "Hole_Waimea - Diction": [
+    "Diction/Hole_Waimea.mp3"
   ],
   "Home": [
     "ByPiece/Home/Home-Sop1Mute.mp3",
@@ -125,11 +131,20 @@
     "ByPiece/Komo Mai Kau Mapuna Hoe/Komo Mai K\u0101u M\u0101puna Hoe SOP.mp3",
     "ByPiece/Komo Mai Kau Mapuna Hoe/Kom Mai K\u0101u M\u0101puna Hoe BASS.mp3"
   ],
+  "Komo_mai_K\u0101u_M\u0101puna_Hoe - Diction": [
+    "Diction/Komo_mai_K\u0101u_M\u0101puna_Hoe.mp3"
+  ],
   "KuuPuaIPaoakalani": [
     "ByPiece/KuuPuaIPaoakalani/KuuPuaIPaoakalani-Bal.mp3"
   ],
+  "Ku\u02bbu_Pua_i_Paoakalani - Diction": [
+    "Diction/Ku\u02bbu_Pua_i_Paoakalani.mp3"
+  ],
   "LikoPuaLehua": [
     "ByPiece/LikoPuaLehua/LikoPuaLehua-Bal.mp3"
+  ],
+  "Liko_Pua_Lehua - Diction": [
+    "Diction/Liko_Pua_Lehua.mp3"
   ],
   "Maikai Ka Makani o Kohala": [
     "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani T2.mp3",
@@ -150,6 +165,9 @@
     "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani B2.mp3",
     "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani-Bal.mp3",
     "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani-Bas2Dom.mp3"
+  ],
+  "Maika\u02bbi_ka_Makani_o_Kohala - Diction": [
+    "Diction/Maika\u02bbi_ka_Makani_o_Kohala.mp3"
   ],
   "Manu Kapalulu - Diction": [
     "Diction/Manu Kapalulu.mp3"
