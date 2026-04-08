@@ -44,7 +44,7 @@ def get_song_files(music_folder, song_folder):
     """
     for song_file in song_folder.iterdir():
         if not song_file.is_file() or song_file.suffix != ".mp3":
-            print(f"'{song_file} is not a '.mp3' file", file = sys.stderr())
+            print(f"'{song_file} is not a '.mp3' file", file = sys.stderr)
             sys.exit(1)
         yield str(song_file.relative_to(music_folder))
 

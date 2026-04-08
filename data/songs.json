@@ -72,7 +72,16 @@
     "Diction/Hawai\u02bbi_Aloha.mp3"
   ],
   "HoleWaimea": [
-    "ByPiece/HoleWaimea/HoleWaimea-Bal.mp3"
+    "ByPiece/HoleWaimea/HoleWaimea-Bal.mp3",
+    "ByPiece/HoleWaimea/HoleWaimea-BasMute.mp3",
+    "ByPiece/HoleWaimea/HoleWaimea-BasDom.mp3",
+    "ByPiece/HoleWaimea/HoleWaimea-Internet.mp3",
+    "ByPiece/HoleWaimea/HoleWaimea-BarMute.mp3",
+    "ByPiece/HoleWaimea/HoleWaimea-Ten2Dom.mp3",
+    "ByPiece/HoleWaimea/HoleWaimea-BarDom.mp3",
+    "ByPiece/HoleWaimea/HoleWaimea-Ten1Mute.mp3",
+    "ByPiece/HoleWaimea/HoleWaimea-Ten1Dom.mp3",
+    "ByPiece/HoleWaimea/HoleWaimea-Ten2Mute.mp3"
   ],
   "Hole_Waimea - Diction": [
     "Diction/Hole_Waimea.mp3"
@@ -176,12 +185,16 @@
     "ByPiece/ManuKapalulu/ManuKapalulu-Bas1Dom.mp3",
     "ByPiece/ManuKapalulu/ManuKapalulu-Dict.mp3",
     "ByPiece/ManuKapalulu/ManuKapalulu-Ten1Dom.mp3",
+    "ByPiece/ManuKapalulu/Manu Kapululu TENOR on piano.mp3",
+    "ByPiece/ManuKapalulu/Many Kapululu BASS on piano.mp3",
+    "ByPiece/ManuKapalulu/Manu Kapululu ALTO on piano.mp3",
     "ByPiece/ManuKapalulu/ManuKapalulu-Bal.mp3",
     "ByPiece/ManuKapalulu/ManuKapalulu-Bas2Mute.mp3",
     "ByPiece/ManuKapalulu/ManuKapalulu-Ten2Mute.mp3",
     "ByPiece/ManuKapalulu/ManuKapalulu-Ten2Dom.mp3",
     "ByPiece/ManuKapalulu/ManuKapalulu-SopDom.mp3",
     "ByPiece/ManuKapalulu/ManuKapalulu-Bas2Dom.mp3",
+    "ByPiece/ManuKapalulu/Manu Kapululu SOPRANO on piano.mp3",
     "ByPiece/ManuKapalulu/ManuKapalulu-AltMute.mp3",
     "ByPiece/ManuKapalulu/ManuKapalulu-SopMute.mp3",
     "ByPiece/ManuKapalulu/ManuKapalulu-Ten1Mute.mp3",
