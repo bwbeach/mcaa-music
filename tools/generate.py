@@ -94,14 +94,14 @@ class VoicePart:
 
 
 VOICE_PARTS = [
-    VoicePart("Soprano 1", ["SOPRANO on piano", "Sop1Dom", "SopDom", "Sop1aDom", "S1", "SOP", "Bal"]),
-    VoicePart("Soprano 2", ["SOPRANO on piano", "Sop2Dom", "SopDom", "Sop2aDom", "S2", "SOP", "Bal"]),
+    VoicePart("Soprano 1", ["SOP as sung at sectional", "SOPRANO on piano", "Sop1Dom", "SopDom", "Sop1aDom", "S1", "S1 S2", "SOP", "Bal"]),
+    VoicePart("Soprano 2", ["SOP as sung at sectional", "SOPRANO on piano", "Sop2Dom", "SopDom", "Sop2aDom", "S2", "S1 S2", "SOP", "Bal"]),
     VoicePart("Alto 1", ["ALTO_sung", "ALTO on piano", "Alt1Dom", "AltDom", "A1", "ALTO", "Bal"]),
     VoicePart("Alto 2", ["ALTO_sung", "ALTO on piano", "Alt2Dom", "AltDom", "A2", "ALTO", "Bal"]),
     VoicePart("Tenor 1", ["TENOR on piano", "Ten1Dom", "TenDom", "T1", "TENOR", "Bal"]),
     VoicePart("Tenor 2", ["TENOR on piano", "Ten2Dom", "TenDom", "T2", "TENOR", "Bal"]),
-    VoicePart("Bass 1", ["BASS on piano", "Bas1Dom", "BasDom", "B1", "BASS", "Bal"]),
-    VoicePart("Bass 2", ["BASS on piano", "Bas2Dom", "BasDom", "B2", "BASS", "Bal"]),
+    VoicePart("Bass 1", ["BASS on piano", "Bas1Dom", "BasDom", "B1", "B1 B2", "BASS", "Bal"]),
+    VoicePart("Bass 2", ["BASS on piano", "Bas2Dom", "BasDom", "B2", "B1 B2", "BASS", "Bal"]),
     VoicePart("All Voices", ["Bal"]),
 ]
 

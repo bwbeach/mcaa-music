@@ -77,10 +77,14 @@
     "ByPiece/HoleWaimea/HoleWaimea-BasDom.mp3",
     "ByPiece/HoleWaimea/HoleWaimea-Internet.mp3",
     "ByPiece/HoleWaimea/HoleWaimea-BarMute.mp3",
+    "ByPiece/HoleWaimea/HoleWaimea-Bas2Dom.mp3",
     "ByPiece/HoleWaimea/HoleWaimea-Ten2Dom.mp3",
     "ByPiece/HoleWaimea/HoleWaimea-BarDom.mp3",
     "ByPiece/HoleWaimea/HoleWaimea-Ten1Mute.mp3",
+    "ByPiece/HoleWaimea/HoleWaimea-Bas1Mute.mp3",
     "ByPiece/HoleWaimea/HoleWaimea-Ten1Dom.mp3",
+    "ByPiece/HoleWaimea/HoleWaimea-Bas1Dom.mp3",
+    "ByPiece/HoleWaimea/HoleWaimea-Bas2Mute.mp3",
     "ByPiece/HoleWaimea/HoleWaimea-Ten2Mute.mp3"
   ],
   "Hole_Waimea - Diction": [
@@ -122,9 +126,19 @@
     "Diction/Ka Nohona Pilikai.mp3"
   ],
   "KaNohonaPiliKai": [
+    "ByPiece/KaNohonaPiliKai/Ka Nohona Pili Kai ALTO.mp3",
+    "ByPiece/KaNohonaPiliKai/Ka Nohona Pili Kai TENOR.mp3",
+    "ByPiece/KaNohonaPiliKai/Ka Nohona Pili Kai SOPRANO.mp3",
     "ByPiece/KaNohonaPiliKai/KaNohonaPiliKai-Dict.mp3",
     "ByPiece/KaNohonaPiliKai/KaNohonaPiliKai-Bal.mp3",
+    "ByPiece/KaNohonaPiliKai/Ka Nohona Pili Kai BASS.mp3",
     "ByPiece/KaNohonaPiliKai/Ka_Nohona_Pili_Kai_ALTO_sung.mp3"
+  ],
+  "Kilakila Haleakala": [
+    "ByPiece/Kilakila Haleakala/Kilakila Haleakal\u0101 ALTO.mp3",
+    "ByPiece/Kilakila Haleakala/Kilakila Haleakal\u0101 TENOR.mp3",
+    "ByPiece/Kilakila Haleakala/Kilakila Haleakal\u0101 B1 B2.mp3",
+    "ByPiece/Kilakila Haleakala/Kilakila Haleakal\u0101 S1 S2.mp3"
   ],
   "Kilakila Haleakal\u0101 - Diction": [
     "Diction/Kilakila Haleakal\u0101.mp3"
@@ -186,20 +200,25 @@
     "ByPiece/ManuKapalulu/ManuKapalulu-Dict.mp3",
     "ByPiece/ManuKapalulu/ManuKapalulu-Ten1Dom.mp3",
     "ByPiece/ManuKapalulu/Manu Kapululu TENOR on piano.mp3",
+    "ByPiece/ManuKapalulu/Manu Kapalulu SOP as sung at sectional.mp3",
     "ByPiece/ManuKapalulu/Many Kapululu BASS on piano.mp3",
     "ByPiece/ManuKapalulu/Manu Kapululu ALTO on piano.mp3",
     "ByPiece/ManuKapalulu/ManuKapalulu-Bal.mp3",
     "ByPiece/ManuKapalulu/ManuKapalulu-Bas2Mute.mp3",
+    "ByPiece/ManuKapalulu/Manu Kapalulu SOPRANO on piano.mp3",
     "ByPiece/ManuKapalulu/ManuKapalulu-Ten2Mute.mp3",
     "ByPiece/ManuKapalulu/ManuKapalulu-Ten2Dom.mp3",
+    "ByPiece/ManuKapalulu/Manu Kapalulu BASS on piano.mp3",
     "ByPiece/ManuKapalulu/ManuKapalulu-SopDom.mp3",
     "ByPiece/ManuKapalulu/ManuKapalulu-Bas2Dom.mp3",
     "ByPiece/ManuKapalulu/Manu Kapululu SOPRANO on piano.mp3",
+    "ByPiece/ManuKapalulu/Manu Kapalulu ALTO on piano.mp3",
     "ByPiece/ManuKapalulu/ManuKapalulu-AltMute.mp3",
     "ByPiece/ManuKapalulu/ManuKapalulu-SopMute.mp3",
     "ByPiece/ManuKapalulu/ManuKapalulu-Ten1Mute.mp3",
     "ByPiece/ManuKapalulu/ManuKapalulu-Bas1Mute.mp3",
-    "ByPiece/ManuKapalulu/ManuKapalulu-AltDom.mp3"
+    "ByPiece/ManuKapalulu/ManuKapalulu-AltDom.mp3",
+    "ByPiece/ManuKapalulu/Manu Kapalulu TENOR on piano.mp3"
   ],
   "N\u0101molokama L\u0101": [
     "ByPiece/N\u0101molokama L\u0101/N\u0101molokama L\u0101-Bal.mp3"
@@ -258,6 +277,7 @@
     "ByPiece/TheresGonnaBeAHomeComin/TheresGonnaBeAHomeComin-BasDom.mp3",
     "ByPiece/TheresGonnaBeAHomeComin/TheresGonnaBeAHomeComin-AltMute.mp3",
     "ByPiece/TheresGonnaBeAHomeComin/TheresGonnaBeAHomeComin-Acc.mp3",
+    "ByPiece/TheresGonnaBeAHomeComin/There\u2019s Gonna Be a Homecomin\u2019 - A1 Middles.mp3",
     "ByPiece/TheresGonnaBeAHomeComin/TheresGonnaBeAHomeComin-Bal.mp3",
     "ByPiece/TheresGonnaBeAHomeComin/TheresGonnaBeAHomeComin-Ten2Dom.mp3",
     "ByPiece/TheresGonnaBeAHomeComin/TheresGonnaBeAHomeComin-Sop2Dom.mp3",
