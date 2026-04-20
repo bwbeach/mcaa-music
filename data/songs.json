@@ -66,7 +66,11 @@
     "ByPiece/AH5_TogetherOnThePorch/AH5_TogetherOnThePorch-Bal.mp3"
   ],
   "Hawai'i Aloha": [
-    "ByPiece/Hawai'i Aloha/Hawai'i Aloha-Bal.mp3"
+    "ByPiece/Hawai'i Aloha/Hawai\u2019i Aloha SOPRANO.mp3",
+    "ByPiece/Hawai'i Aloha/Hawai\u2019i Aloha BASS.mp3",
+    "ByPiece/Hawai'i Aloha/Hawai'i Aloha-Bal.mp3",
+    "ByPiece/Hawai'i Aloha/Hawai\u2019i Aloha TENOR.mp3",
+    "ByPiece/Hawai'i Aloha/Hawai\u2019i Aloha ALTO.mp3"
   ],
   "Hawai\u02bbi_Aloha - Diction": [
     "Diction/Hawai\u02bbi_Aloha.mp3"
@@ -126,19 +130,29 @@
     "Diction/Ka Nohona Pilikai.mp3"
   ],
   "KaNohonaPiliKai": [
+    "ByPiece/KaNohonaPiliKai/KaNohonaPiliKai-SopDom.mp3",
     "ByPiece/KaNohonaPiliKai/Ka Nohona Pili Kai ALTO.mp3",
     "ByPiece/KaNohonaPiliKai/Ka Nohona Pili Kai TENOR.mp3",
     "ByPiece/KaNohonaPiliKai/Ka Nohona Pili Kai SOPRANO.mp3",
+    "ByPiece/KaNohonaPiliKai/KaNohonaPiliKai-AltDom.mp3",
+    "ByPiece/KaNohonaPiliKai/KaNohonaPiliKai-TenDom.mp3",
     "ByPiece/KaNohonaPiliKai/KaNohonaPiliKai-Dict.mp3",
     "ByPiece/KaNohonaPiliKai/KaNohonaPiliKai-Bal.mp3",
     "ByPiece/KaNohonaPiliKai/Ka Nohona Pili Kai BASS.mp3",
-    "ByPiece/KaNohonaPiliKai/Ka_Nohona_Pili_Kai_ALTO_sung.mp3"
+    "ByPiece/KaNohonaPiliKai/Ka_Nohona_Pili_Kai_ALTO_sung.mp3",
+    "ByPiece/KaNohonaPiliKai/KaNohonaPiliKai-BasDom.mp3"
   ],
   "Kilakila Haleakala": [
     "ByPiece/Kilakila Haleakala/Kilakila Haleakal\u0101 ALTO.mp3",
+    "ByPiece/Kilakila Haleakala/KilakilaHaleakala-SopDom.mp3",
+    "ByPiece/Kilakila Haleakala/KilakilaHaleakala-Dict.mp3",
+    "ByPiece/Kilakila Haleakala/KilakilaHaleakala-TenDom.mp3",
+    "ByPiece/Kilakila Haleakala/KilakilaHaleakala-AltDom.mp3",
     "ByPiece/Kilakila Haleakala/Kilakila Haleakal\u0101 TENOR.mp3",
+    "ByPiece/Kilakila Haleakala/KilakilaHaleakala-Bal.mp3",
     "ByPiece/Kilakila Haleakala/Kilakila Haleakal\u0101 B1 B2.mp3",
-    "ByPiece/Kilakila Haleakala/Kilakila Haleakal\u0101 S1 S2.mp3"
+    "ByPiece/Kilakila Haleakala/Kilakila Haleakal\u0101 S1 S2.mp3",
+    "ByPiece/Kilakila Haleakala/KilakilaHaleakala-BasDom.mp3"
   ],
   "Kilakila Haleakal\u0101 - Diction": [
     "Diction/Kilakila Haleakal\u0101.mp3"
@@ -158,13 +172,21 @@
     "Diction/Komo_mai_K\u0101u_M\u0101puna_Hoe.mp3"
   ],
   "KuuPuaIPaoakalani": [
-    "ByPiece/KuuPuaIPaoakalani/KuuPuaIPaoakalani-Bal.mp3"
+    "ByPiece/KuuPuaIPaoakalani/Ku\u2019u Pua i Paoakalani TENOR.mp3",
+    "ByPiece/KuuPuaIPaoakalani/KuuPuaIPaoakalani-Bal.mp3",
+    "ByPiece/KuuPuaIPaoakalani/Ku\u2019u Pua i Paoakalani BASS.mp3",
+    "ByPiece/KuuPuaIPaoakalani/Ku\u2019u Pua i Paoakalani ALTO.mp3",
+    "ByPiece/KuuPuaIPaoakalani/Ku\u2019u Pua i Paoakalani SOPRANO.mp3"
   ],
   "Ku\u02bbu_Pua_i_Paoakalani - Diction": [
     "Diction/Ku\u02bbu_Pua_i_Paoakalani.mp3"
   ],
   "LikoPuaLehua": [
-    "ByPiece/LikoPuaLehua/LikoPuaLehua-Bal.mp3"
+    "ByPiece/LikoPuaLehua/LikoPuaLehua-Bal.mp3",
+    "ByPiece/LikoPuaLehua/Liko Pua Lehua BASS.mp3",
+    "ByPiece/LikoPuaLehua/Liko Pua Lehua ALTO.mp3",
+    "ByPiece/LikoPuaLehua/Liko Pua Lehua TENOR.mp3",
+    "ByPiece/LikoPuaLehua/Liko Pua Lehua SOPRANO.mp3"
   ],
   "Liko_Pua_Lehua - Diction": [
     "Diction/Liko_Pua_Lehua.mp3"
@@ -288,6 +310,7 @@
     "ByPiece/TheresGonnaBeAHomeComin/TheresGonnaBeAHomeComin-Ten1Dom.mp3",
     "ByPiece/TheresGonnaBeAHomeComin/TheresGonnaBeAHomeComin-Ten2Mute.mp3",
     "ByPiece/TheresGonnaBeAHomeComin/TheresGonnaBeAHomeComin-Sop1bDom.mp3",
+    "ByPiece/TheresGonnaBeAHomeComin/TheresGonnaBeAHomeComin-Alt1Mid.mp3",
     "ByPiece/TheresGonnaBeAHomeComin/TheresGonnaBeAHomeComin-Sop2Mute.mp3",
     "ByPiece/TheresGonnaBeAHomeComin/TheresGonnaBeAHomeComin-Sop1bMute.mp3"
   ],
