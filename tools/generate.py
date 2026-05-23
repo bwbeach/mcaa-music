@@ -18,6 +18,8 @@ import sys
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
+_DISABLED = True
+
 VOICE_SONG_NOTES = {
     "Komo Mai Kau Mapuna Hoe" : {
         "All Voices" : "This is a recording from rehearsal on March 31, starting at measure 46."
@@ -167,6 +169,9 @@ def main():
     if not os.path.isdir(output_dir):
         print(f"'{output_dir}' is not a directory", file=sys.stderr)
         sys.exit(1)
+
+    if _DISABLED:
+        return
     
     # Set up template generation
     jinja2_env = Environment(
