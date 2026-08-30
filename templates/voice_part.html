@@ -18,8 +18,8 @@
     <p>Practice Recordings</p>
 
     {% for song in songs %}
-    {% if song.html_file_name_for_part(voice_part) %}
-    <a href="{{ song.html_file_name_for_part(voice_part) }}" class="choice">{{ song.pretty_name }}</a>
+    {% if song.has_part(voice_part) %}
+    <a href="{{ song.html_file_name_for_part(voice_part) }}" class="choice">{{ song.name }}</a>
     {% else %}
     <p>Not available: {{ song.pretty_name }}</p>
     {% endif %}

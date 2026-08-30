@@ -63,11 +63,11 @@ def get_song_triples(all_files_folder):
         if not m1:
             raise ValueError(f"File name does not match top pattern: {file}")
         song, part_info, song_info = m1.groups()
-        song_file = f"AllFiles/{song}"
+        song_file = f"AllFiles/{file.name}"
 
         
         if part_info == "Balanced Voices":
-            yield song, "balanced", song_file
+            yield song, "balancedvoices", song_file
         elif part_info == "Accompaniment Track":
             pass
         else:

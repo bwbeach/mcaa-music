@@ -20,21 +20,6 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 _DISABLED = False
 
-VOICE_SONG_NOTES = {
-    "Komo Mai Kau Mapuna Hoe" : {
-        "All Voices" : "This is a recording from rehearsal on March 31, starting at measure 46."
-    },
-    "Ka Nohona Pili Kai": {
-        "Alto 1" : "Recording from March 31 sectional",
-        "Alto 2" : "Recording from March 31 sectional",
-    },
-    "Maikai Ka Makani o Kohala": {
-        "Alto 1" : "Recording from March 31 sectional",
-        "Alto 2" : "Recording from March 31 sectional",
-    },
-}
-
-
 def camel_case_to_words(camel_case):
     """Convert a camel-case string into a list of words.
 
@@ -81,30 +66,26 @@ class VoicePart:
     Constant structure that holds information about one voice part.
 
         pretty_name - The name to display to humans
-        file_name - The name to use for files and in URL paths
-            (same as pretty_name, but no spaces and all lower case)
-        song_names - Possible names to use embedded in song file names
-
-    The constructor accepts a primary song name, which is something like
-    "Sop1".  It assumes there just one other name that could be used, and
-    that it's made by dropping the final number.
+        key_name - The key in the mapping
     """
-    def __init__(self, pretty_name, song_suffixes):
+    def __init__(self, pretty_name):
         self.pretty_name = pretty_name
-        self.file_name = pretty_name.replace(" ", "").lower()
-        self.song_suffixes = song_suffixes
+        self.key_name = pretty_name.lower().replace(" ", "")
+
+    def __repr__(self):
+        return self.key_name
 
 
 VOICE_PARTS = [
-    VoicePart("Soprano 1", ["SOP as sung at sectional", "SOPRANO on piano", "Sop1Dom", "SopDom", "Sop1aDom", "S1", "S1 S2", "SOP", "Bal"]),
-    VoicePart("Soprano 2", ["SOP as sung at sectional", "SOPRANO on piano", "Sop2Dom", "SopDom", "Sop2aDom", "S2", "S1 S2", "SOP", "Bal"]),
-    VoicePart("Alto 1", ["ALTO_sung", "ALTO on piano", "Alt1Dom", "AltDom", "A1", "ALTO", "Bal"]),
-    VoicePart("Alto 2", ["ALTO_sung", "ALTO on piano", "Alt2Dom", "AltDom", "A2", "ALTO", "Bal"]),
-    VoicePart("Tenor 1", ["TENOR on piano", "Ten1Dom", "TenDom", "T1", "TENOR", "Bal"]),
-    VoicePart("Tenor 2", ["TENOR on piano", "Ten2Dom", "TenDom", "T2", "TENOR", "Bal"]),
-    VoicePart("Bass 1", ["BASS on piano", "Bas1Dom", "BasDom", "B1", "B1 B2", "BASS", "Bal"]),
-    VoicePart("Bass 2", ["BASS on piano", "Bas2Dom", "BasDom", "B2", "B1 B2", "BASS", "Bal"]),
-    VoicePart("All Voices", ["Bal"]),
+    VoicePart("Soprano 1"),
+    VoicePart("Soprano 2"),
+    VoicePart("Alto 1"),
+    VoicePart("Alto 2"),
+    VoicePart("Tenor 1"),
+    VoicePart("Tenor 2"),
+    VoicePart("Bass 1"),
+    VoicePart("Bass 2"),
+    VoicePart("Balanced Voices"),
 ]
 
 
@@ -114,27 +95,20 @@ class Song:
 
         pretty_name - The name to display to humans.
     """
-    def __init__(self, camel_case_name, music_files):
-        self.camel_case_name = camel_case_name
-        self.pretty_name = make_pretty_name(camel_case_name)
-        self.file_name = camel_case_name.lower()
-        self.music_files = music_files
+    def __init__(self, name, song_info):
+        self.name = name
+        self.info = song_info
+
+    def has_part(self, voice_part):
+        return voice_part.key_name in self.info
 
     def html_file_name_for_part(self, voice_part):
-        if self.music_file_name_for_part(voice_part):
-            return f"{self.file_name}_{voice_part.file_name}.html"
+        return f"{self.name}_{voice_part.key_name}.html"
 
     def music_path_name_for_part(self, voice_part):
-        return self.music_file_name_for_part(voice_part)
-
-    def music_file_name_for_part(self, voice_part):
-        for suffix in voice_part.song_suffixes:
-            for music_file in self.music_files:
-                if (suffix + ".") in music_file:
-                    return music_file
-        if len(self.music_files) == 1:
-            return self.music_files[0]
-        return None
+        if voice_part.key_name not in self.info:
+            raise ValueError(f"No part file for {voice_part} in: {self.name}")
+        return self.info[voice_part.key_name]
 
 
 def read_json(file_path):
@@ -177,33 +151,21 @@ def main():
     )
 
     # Make the list of songs
-    song_names = sorted(song_data.keys())
-    songs = [
-        Song(song_name, song_data[song_name])
-        for song_name in song_names
-    ]
+    songs = sorted(
+        (
+            Song(song_name, song_info)
+            for song_name, song_info in song_data.items()
+        ),
+        key=lambda s: s.name
+    )
 
     # Definitions of variables used by templates
     template_data = dict(
         is_local=is_local,
-        song_names=song_names,
+        songs=songs,
     )
-
-    pretty_voice_parts = list(
-        voice_part.pretty_name
-        for voice_part in VOICE_PARTS
-    )
-    pretty_songs = list(
-        song.pretty_name
-        for song in songs
-    )
-    for s, d in VOICE_SONG_NOTES.items():
-        assert s in pretty_songs, f"song name in notes not found: {repr(s)}"
-        for vp in d.keys():
-            assert vp in pretty_voice_parts, f"voice part in notes not found: {repr(vp)}"
 
     # Generate voice part files
-    notes_used = set()
     for voice_part in VOICE_PARTS:
         # Make the page that lists all of the songs for this voice part
         template = jinja2_env.get_template("voice_part.html")
@@ -211,7 +173,7 @@ def main():
             songs=songs,
             voice_part=voice_part,
         )
-        render_template(jinja2_env, "voice_part.html", voice_data, os.path.join(output_dir, f"{voice_part.file_name}.html"))
+        render_template(jinja2_env, "voice_part.html", voice_data, os.path.join(output_dir, f"{voice_part.key_name}.html"))
 
         # Make one player page for each song
         if is_local:
@@ -221,27 +183,12 @@ def main():
 
         for song in songs:
             if song.html_file_name_for_part(voice_part):
-                notes = VOICE_SONG_NOTES.get(song.pretty_name, {}).get(voice_part.pretty_name)
-                if notes:
-                    notes_used.add((song.pretty_name, voice_part.pretty_name))
                 player_data = dict(
                     music_prefix=music_prefix,
                     voice_part=voice_part,
                     song=song,
-                    notes=notes,
                 )
                 render_template(jinja2_env, "player.html", player_data, os.path.join(output_dir, song.html_file_name_for_part(voice_part)))
-
-    all_notes = set(
-        (song_name, voice_name)
-        for song_name, voices in VOICE_SONG_NOTES.items()
-        for voice_name in voices.keys()
-    )
-    unused_notes = all_notes - notes_used
-    if unused_notes:
-        print("Unused notes:", unused_notes)
-        raise Exception("Some notes were unused")
-        
 
 
 if __name__ == "__main__":
