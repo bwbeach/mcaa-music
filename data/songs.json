@@ -1,320 +1,167 @@
 {
-  "AH1_IAmAtHome": [
-    "ByPiece/AH1_IAmAtHome/AH1_IAmAtHome-AltMute.mp3",
-    "ByPiece/AH1_IAmAtHome/AH1_IAmAtHome-Bal.mp3",
-    "ByPiece/AH1_IAmAtHome/AH1_IAmAtHome-TenMute.mp3",
-    "ByPiece/AH1_IAmAtHome/AH1_IAmAtHome-SopMute.mp3",
-    "ByPiece/AH1_IAmAtHome/AH1_IAmAtHome-Bas2Mute.mp3",
-    "ByPiece/AH1_IAmAtHome/AH1_IAmAtHome-Bas2Dom.mp3",
-    "ByPiece/AH1_IAmAtHome/AH1_IAmAtHome-Acc.mp3",
-    "ByPiece/AH1_IAmAtHome/AH1_IAmAtHome-Bas1Mute.mp3",
-    "ByPiece/AH1_IAmAtHome/AH1_IAmAtHome-TenDom.mp3",
-    "ByPiece/AH1_IAmAtHome/AH1_IAmAtHome-AltDom.mp3",
-    "ByPiece/AH1_IAmAtHome/AH1_IAmAtHome-Bas1Dom.mp3",
-    "ByPiece/AH1_IAmAtHome/AH1_IAmAtHome-SopDom.mp3"
-  ],
-  "AH2_NewRoof": [
-    "ByPiece/AH2_NewRoof/AH2_NewRoof-TenDom.mp3",
-    "ByPiece/AH2_NewRoof/AH2_NewRoof-AltDom.mp3",
-    "ByPiece/AH2_NewRoof/AH2_NewRoof-Sop1Mute.mp3",
-    "ByPiece/AH2_NewRoof/AH2_NewRoof-Sop2Dom.mp3",
-    "ByPiece/AH2_NewRoof/AH2_NewRoof-Sop2Mute.mp3",
-    "ByPiece/AH2_NewRoof/AH2_NewRoof-BasMute.mp3",
-    "ByPiece/AH2_NewRoof/AH2_NewRoof-TenMute.mp3",
-    "ByPiece/AH2_NewRoof/AH2_NewRoof-AltMute.mp3",
-    "ByPiece/AH2_NewRoof/AH2_NewRoof-Sop1Dom.mp3",
-    "ByPiece/AH2_NewRoof/AH2_NewRoof-Bal.mp3",
-    "ByPiece/AH2_NewRoof/AH2_NewRoof-BasDom.mp3",
-    "ByPiece/AH2_NewRoof/AH2_NewRoof-Acc.mp3"
-  ],
-  "AH3_GoodBones": [
-    "ByPiece/AH3_GoodBones/AH3_GoodBones-Bas2Mute.mp3",
-    "ByPiece/AH3_GoodBones/AH3_GoodBones-Bas1Mute.mp3",
-    "ByPiece/AH3_GoodBones/AH3_GoodBones-Bas1Dom.mp3",
-    "ByPiece/AH3_GoodBones/AH3_GoodBones-SopMute.mp3",
-    "ByPiece/AH3_GoodBones/AH3_GoodBones-TenMute.mp3",
-    "ByPiece/AH3_GoodBones/AH3_GoodBones-Acc.mp3",
-    "ByPiece/AH3_GoodBones/AH3_GoodBones-AltMute.mp3",
-    "ByPiece/AH3_GoodBones/AH3_GoodBones-SopDom.mp3",
-    "ByPiece/AH3_GoodBones/AH3_GoodBones-AltDom.mp3",
-    "ByPiece/AH3_GoodBones/AH3_GoodBones-TenDom.mp3",
-    "ByPiece/AH3_GoodBones/AH3_GoodBones-Bas2Dom.mp3",
-    "ByPiece/AH3_GoodBones/AH3_GoodBones-Bal.mp3"
-  ],
-  "AH4_APlace": [
-    "ByPiece/AH4_APlace/AH4_APlace-BasDom.mp3",
-    "ByPiece/AH4_APlace/AH4_APlace-Acc.mp3",
-    "ByPiece/AH4_APlace/AH4_APlace-AltDom.mp3",
-    "ByPiece/AH4_APlace/AH4_APlace-TenDom.mp3",
-    "ByPiece/AH4_APlace/AH4_APlace-SopMute.mp3",
-    "ByPiece/AH4_APlace/AH4_APlace-TenMute.mp3",
-    "ByPiece/AH4_APlace/AH4_APlace-AltMute.mp3",
-    "ByPiece/AH4_APlace/AH4_APlace-BasMute.mp3",
-    "ByPiece/AH4_APlace/AH4_APlace-Bal.mp3",
-    "ByPiece/AH4_APlace/AH4_APlace-SopDom.mp3"
-  ],
-  "AH5_TogetherOnThePorch": [
-    "ByPiece/AH5_TogetherOnThePorch/AH5_TogetherOnThePorch-AltMute.mp3",
-    "ByPiece/AH5_TogetherOnThePorch/AH5_TogetherOnThePorch-TenMute.mp3",
-    "ByPiece/AH5_TogetherOnThePorch/AH5_TogetherOnThePorch-SopMute.mp3",
-    "ByPiece/AH5_TogetherOnThePorch/AH5_TogetherOnThePorch-BasMute.mp3",
-    "ByPiece/AH5_TogetherOnThePorch/AH5_TogetherOnThePorch-BasDom.mp3",
-    "ByPiece/AH5_TogetherOnThePorch/AH5_TogetherOnThePorch-Acc.mp3",
-    "ByPiece/AH5_TogetherOnThePorch/AH5_TogetherOnThePorch-SopDom.mp3",
-    "ByPiece/AH5_TogetherOnThePorch/AH5_TogetherOnThePorch-AltDom.mp3",
-    "ByPiece/AH5_TogetherOnThePorch/AH5_TogetherOnThePorch-TenDom.mp3",
-    "ByPiece/AH5_TogetherOnThePorch/AH5_TogetherOnThePorch-Bal.mp3"
-  ],
-  "Hawai'i Aloha": [
-    "ByPiece/Hawai'i Aloha/Hawai\u2019i Aloha SOPRANO.mp3",
-    "ByPiece/Hawai'i Aloha/Hawai\u2019i Aloha BASS.mp3",
-    "ByPiece/Hawai'i Aloha/Hawai'i Aloha-Bal.mp3",
-    "ByPiece/Hawai'i Aloha/Hawai\u2019i Aloha TENOR.mp3",
-    "ByPiece/Hawai'i Aloha/Hawai\u2019i Aloha ALTO.mp3"
-  ],
-  "Hawai\u02bbi_Aloha - Diction": [
-    "Diction/Hawai\u02bbi_Aloha.mp3"
-  ],
-  "HoleWaimea": [
-    "ByPiece/HoleWaimea/HoleWaimea-Bal.mp3",
-    "ByPiece/HoleWaimea/HoleWaimea-BasMute.mp3",
-    "ByPiece/HoleWaimea/HoleWaimea-BasDom.mp3",
-    "ByPiece/HoleWaimea/HoleWaimea-Internet.mp3",
-    "ByPiece/HoleWaimea/HoleWaimea-BarMute.mp3",
-    "ByPiece/HoleWaimea/HoleWaimea-Bas2Dom.mp3",
-    "ByPiece/HoleWaimea/HoleWaimea-Ten2Dom.mp3",
-    "ByPiece/HoleWaimea/HoleWaimea-BarDom.mp3",
-    "ByPiece/HoleWaimea/HoleWaimea-Ten1Mute.mp3",
-    "ByPiece/HoleWaimea/HoleWaimea-Bas1Mute.mp3",
-    "ByPiece/HoleWaimea/HoleWaimea-Ten1Dom.mp3",
-    "ByPiece/HoleWaimea/HoleWaimea-Bas1Dom.mp3",
-    "ByPiece/HoleWaimea/HoleWaimea-Bas2Mute.mp3",
-    "ByPiece/HoleWaimea/HoleWaimea-Ten2Mute.mp3"
-  ],
-  "Hole_Waimea - Diction": [
-    "Diction/Hole_Waimea.mp3"
-  ],
-  "Home": [
-    "ByPiece/Home/Home-Sop1Mute.mp3",
-    "ByPiece/Home/Home-Acc.mp3",
-    "ByPiece/Home/Home-TenMute.mp3",
-    "ByPiece/Home/Home-AltDom.mp3",
-    "ByPiece/Home/Home-TenDom.mp3",
-    "ByPiece/Home/Home-AltMute.mp3",
-    "ByPiece/Home/Home-BasMute.mp3",
-    "ByPiece/Home/Home-Sop2Dom.mp3",
-    "ByPiece/Home/Home-Sop2Mute.mp3",
-    "ByPiece/Home/Home-Bal.mp3",
-    "ByPiece/Home/Home-BasDom.mp3",
-    "ByPiece/Home/Home-Sop1Dom.mp3"
-  ],
-  "ItsARepublicIfYouCanKeepIt": [
-    "ByPiece/ItsARepublicIfYouCanKeepIt/ItsARepublicIfYouCanKeepIt-TenMute.mp3",
-    "ByPiece/ItsARepublicIfYouCanKeepIt/ItsARepublicIfYouCanKeepIt-Alt1Mute.mp3",
-    "ByPiece/ItsARepublicIfYouCanKeepIt/ItsARepublicIfYouCanKeepIt-Acc.mp3",
-    "ByPiece/ItsARepublicIfYouCanKeepIt/ItsARepublicIfYouCanKeepIt-Sop2Dom.mp3",
-    "ByPiece/ItsARepublicIfYouCanKeepIt/ItsARepublicIfYouCanKeepIt-Alt2Dom.mp3",
-    "ByPiece/ItsARepublicIfYouCanKeepIt/ItsARepublicIfYouCanKeepIt-Bal.mp3",
-    "ByPiece/ItsARepublicIfYouCanKeepIt/ItsARepublicIfYouCanKeepIt-Alt2Mute.mp3",
-    "ByPiece/ItsARepublicIfYouCanKeepIt/ItsARepublicIfYouCanKeepIt-Bas2Dom.mp3",
-    "ByPiece/ItsARepublicIfYouCanKeepIt/ItsARepublicIfYouCanKeepIt-Bas1Mute.mp3",
-    "ByPiece/ItsARepublicIfYouCanKeepIt/ItsARepublicIfYouCanKeepIt-Sop1Mute.mp3",
-    "ByPiece/ItsARepublicIfYouCanKeepIt/ItsARepublicIfYouCanKeepIt-Bas2Mute.mp3",
-    "ByPiece/ItsARepublicIfYouCanKeepIt/ItsARepublicIfYouCanKeepIt-Bas1Dom.mp3",
-    "ByPiece/ItsARepublicIfYouCanKeepIt/ItsARepublicIfYouCanKeepIt-Sop1Dom.mp3",
-    "ByPiece/ItsARepublicIfYouCanKeepIt/ItsARepublicIfYouCanKeepIt-TenDom.mp3",
-    "ByPiece/ItsARepublicIfYouCanKeepIt/ItsARepublicIfYouCanKeepIt-Alt1Dom.mp3",
-    "ByPiece/ItsARepublicIfYouCanKeepIt/ItsARepublicIfYouCanKeepIt-Sop2Mute.mp3"
-  ],
-  "Ka Nohona Pilikai - Diction": [
-    "Diction/Ka Nohona Pilikai.mp3"
-  ],
-  "KaNohonaPiliKai": [
-    "ByPiece/KaNohonaPiliKai/KaNohonaPiliKai-SopDom.mp3",
-    "ByPiece/KaNohonaPiliKai/Ka Nohona Pili Kai ALTO.mp3",
-    "ByPiece/KaNohonaPiliKai/Ka Nohona Pili Kai TENOR.mp3",
-    "ByPiece/KaNohonaPiliKai/Ka Nohona Pili Kai SOPRANO.mp3",
-    "ByPiece/KaNohonaPiliKai/KaNohonaPiliKai-AltDom.mp3",
-    "ByPiece/KaNohonaPiliKai/KaNohonaPiliKai-TenDom.mp3",
-    "ByPiece/KaNohonaPiliKai/KaNohonaPiliKai-Dict.mp3",
-    "ByPiece/KaNohonaPiliKai/KaNohonaPiliKai-Bal.mp3",
-    "ByPiece/KaNohonaPiliKai/Ka Nohona Pili Kai BASS.mp3",
-    "ByPiece/KaNohonaPiliKai/Ka_Nohona_Pili_Kai_ALTO_sung.mp3",
-    "ByPiece/KaNohonaPiliKai/KaNohonaPiliKai-BasDom.mp3"
-  ],
-  "Kilakila Haleakala": [
-    "ByPiece/Kilakila Haleakala/Kilakila Haleakal\u0101 ALTO.mp3",
-    "ByPiece/Kilakila Haleakala/KilakilaHaleakala-SopDom.mp3",
-    "ByPiece/Kilakila Haleakala/KilakilaHaleakala-Dict.mp3",
-    "ByPiece/Kilakila Haleakala/KilakilaHaleakala-TenDom.mp3",
-    "ByPiece/Kilakila Haleakala/KilakilaHaleakala-AltDom.mp3",
-    "ByPiece/Kilakila Haleakala/Kilakila Haleakal\u0101 TENOR.mp3",
-    "ByPiece/Kilakila Haleakala/KilakilaHaleakala-Bal.mp3",
-    "ByPiece/Kilakila Haleakala/Kilakila Haleakal\u0101 B1 B2.mp3",
-    "ByPiece/Kilakila Haleakala/Kilakila Haleakal\u0101 S1 S2.mp3",
-    "ByPiece/Kilakila Haleakala/KilakilaHaleakala-BasDom.mp3"
-  ],
-  "Kilakila Haleakal\u0101 - Diction": [
-    "Diction/Kilakila Haleakal\u0101.mp3"
-  ],
-  "Komo Mai Kau Mapuna Hoe": [
-    "ByPiece/Komo Mai Kau Mapuna Hoe/Komo Mai K\u0101u M\u0101puna Hoe-AltDom.mp3",
-    "ByPiece/Komo Mai Kau Mapuna Hoe/Komo Mai K\u0101u M\u0101puna Hoe-TenDom.mp3",
-    "ByPiece/Komo Mai Kau Mapuna Hoe/Komo Mai K\u0101u M\u0101puna Hoe from 46-Bal.mp3",
-    "ByPiece/Komo Mai Kau Mapuna Hoe/Komo Mai K\u0101u M\u0101puna Hoe ALTO.mp3",
-    "ByPiece/Komo Mai Kau Mapuna Hoe/Komo Mai K\u0101u M\u0101puna Hoe TENOR.mp3",
-    "ByPiece/Komo Mai Kau Mapuna Hoe/Komo Mai K\u0101u M\u0101puna Hoe-SopDom.mp3",
-    "ByPiece/Komo Mai Kau Mapuna Hoe/Komo Mai K\u0101u M\u0101puna Hoe-BasDom.mp3",
-    "ByPiece/Komo Mai Kau Mapuna Hoe/Komo Mai K\u0101u M\u0101puna Hoe SOP.mp3",
-    "ByPiece/Komo Mai Kau Mapuna Hoe/Kom Mai K\u0101u M\u0101puna Hoe BASS.mp3"
-  ],
-  "Komo_mai_K\u0101u_M\u0101puna_Hoe - Diction": [
-    "Diction/Komo_mai_K\u0101u_M\u0101puna_Hoe.mp3"
-  ],
-  "KuuPuaIPaoakalani": [
-    "ByPiece/KuuPuaIPaoakalani/Ku\u2019u Pua i Paoakalani TENOR.mp3",
-    "ByPiece/KuuPuaIPaoakalani/KuuPuaIPaoakalani-Bal.mp3",
-    "ByPiece/KuuPuaIPaoakalani/Ku\u2019u Pua i Paoakalani BASS.mp3",
-    "ByPiece/KuuPuaIPaoakalani/Ku\u2019u Pua i Paoakalani ALTO.mp3",
-    "ByPiece/KuuPuaIPaoakalani/Ku\u2019u Pua i Paoakalani SOPRANO.mp3"
-  ],
-  "Ku\u02bbu_Pua_i_Paoakalani - Diction": [
-    "Diction/Ku\u02bbu_Pua_i_Paoakalani.mp3"
-  ],
-  "LikoPuaLehua": [
-    "ByPiece/LikoPuaLehua/LikoPuaLehua-Bal.mp3",
-    "ByPiece/LikoPuaLehua/Liko Pua Lehua BASS.mp3",
-    "ByPiece/LikoPuaLehua/Liko Pua Lehua ALTO.mp3",
-    "ByPiece/LikoPuaLehua/Liko Pua Lehua TENOR.mp3",
-    "ByPiece/LikoPuaLehua/Liko Pua Lehua SOPRANO.mp3"
-  ],
-  "Liko_Pua_Lehua - Diction": [
-    "Diction/Liko_Pua_Lehua.mp3"
-  ],
-  "Maikai Ka Makani o Kohala": [
-    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani T2.mp3",
-    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani A2.mp3",
-    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani T1.mp3",
-    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani A1.mp3",
-    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani S2.mp3",
-    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani-Bas1Dom.mp3",
-    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani S1.mp3",
-    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani-Alt1Dom.mp3",
-    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani-Sop1Dom.mp3",
-    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani-Ten1Dom.mp3",
-    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i_ka_makani_-ALTO_sung.mp3",
-    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani-Alt2Dom.mp3",
-    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani B1.mp3",
-    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani-Ten2Dom.mp3",
-    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani-Sop2Dom.mp3",
-    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani B2.mp3",
-    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani-Bal.mp3",
-    "ByPiece/Maikai Ka Makani o Kohala/Maika\u2019i ka Makani-Bas2Dom.mp3"
-  ],
-  "Maika\u02bbi_ka_Makani_o_Kohala - Diction": [
-    "Diction/Maika\u02bbi_ka_Makani_o_Kohala.mp3"
-  ],
-  "Manu Kapalulu - Diction": [
-    "Diction/Manu Kapalulu.mp3"
-  ],
-  "ManuKapalulu": [
-    "ByPiece/ManuKapalulu/ManuKapalulu-Bas1Dom.mp3",
-    "ByPiece/ManuKapalulu/ManuKapalulu-Dict.mp3",
-    "ByPiece/ManuKapalulu/ManuKapalulu-Ten1Dom.mp3",
-    "ByPiece/ManuKapalulu/Manu Kapululu TENOR on piano.mp3",
-    "ByPiece/ManuKapalulu/Manu Kapalulu SOP as sung at sectional.mp3",
-    "ByPiece/ManuKapalulu/Many Kapululu BASS on piano.mp3",
-    "ByPiece/ManuKapalulu/Manu Kapululu ALTO on piano.mp3",
-    "ByPiece/ManuKapalulu/ManuKapalulu-Bal.mp3",
-    "ByPiece/ManuKapalulu/ManuKapalulu-Bas2Mute.mp3",
-    "ByPiece/ManuKapalulu/Manu Kapalulu SOPRANO on piano.mp3",
-    "ByPiece/ManuKapalulu/ManuKapalulu-Ten2Mute.mp3",
-    "ByPiece/ManuKapalulu/ManuKapalulu-Ten2Dom.mp3",
-    "ByPiece/ManuKapalulu/Manu Kapalulu BASS on piano.mp3",
-    "ByPiece/ManuKapalulu/ManuKapalulu-SopDom.mp3",
-    "ByPiece/ManuKapalulu/ManuKapalulu-Bas2Dom.mp3",
-    "ByPiece/ManuKapalulu/Manu Kapululu SOPRANO on piano.mp3",
-    "ByPiece/ManuKapalulu/Manu Kapalulu ALTO on piano.mp3",
-    "ByPiece/ManuKapalulu/ManuKapalulu-AltMute.mp3",
-    "ByPiece/ManuKapalulu/ManuKapalulu-SopMute.mp3",
-    "ByPiece/ManuKapalulu/ManuKapalulu-Ten1Mute.mp3",
-    "ByPiece/ManuKapalulu/ManuKapalulu-Bas1Mute.mp3",
-    "ByPiece/ManuKapalulu/ManuKapalulu-AltDom.mp3",
-    "ByPiece/ManuKapalulu/Manu Kapalulu TENOR on piano.mp3"
-  ],
-  "N\u0101molokama L\u0101": [
-    "ByPiece/N\u0101molokama L\u0101/N\u0101molokama L\u0101-Bal.mp3"
-  ],
-  "O Makalapua": [
-    "ByPiece/O Makalapua/O Makalapua-BasDom.mp3",
-    "ByPiece/O Makalapua/\u2018O Makalapua TENOR.mp3",
-    "ByPiece/O Makalapua/\u2018O Makalapua ALTO.mp3",
-    "ByPiece/O Makalapua/\u2018O Makalapua SOP.mp3",
-    "ByPiece/O Makalapua/O Makalapua-Dict.mp3",
-    "ByPiece/O Makalapua/O Makalapua-SopDom.mp3",
-    "ByPiece/O Makalapua/O Makalapua-Bal.mp3",
-    "ByPiece/O Makalapua/\u2018O Makalapua BASS.mp3",
-    "ByPiece/O Makalapua/O Makalapua-TenDom.mp3",
-    "ByPiece/O Makalapua/O Makalapua-AltDom.mp3"
-  ],
-  "SureOnThisShiningNight": [
-    "ByPiece/SureOnThisShiningNight/SureOnThisShiningNight-Alt2Mute.mp3",
-    "ByPiece/SureOnThisShiningNight/SureOnThisShiningNight-Alt1Dom.mp3",
-    "ByPiece/SureOnThisShiningNight/SureOnThisShiningNight-Ten1Dom.mp3",
-    "ByPiece/SureOnThisShiningNight/SureOnThisShiningNight-Bas1Dom.mp3",
-    "ByPiece/SureOnThisShiningNight/SureOnThisShiningNight-Alt1Mute.mp3",
-    "ByPiece/SureOnThisShiningNight/SureOnThisShiningNight-Bal.mp3",
-    "ByPiece/SureOnThisShiningNight/SureOnThisShiningNight-Bas2Mute.mp3",
-    "ByPiece/SureOnThisShiningNight/SureOnThisShiningNight-Ten2Mute.mp3",
-    "ByPiece/SureOnThisShiningNight/SureOnThisShiningNight-SopMute.mp3",
-    "ByPiece/SureOnThisShiningNight/SureOnThisShiningNight-Bas2Dom.mp3",
-    "ByPiece/SureOnThisShiningNight/SureOnThisShiningNight-Alt2Dom.mp3",
-    "ByPiece/SureOnThisShiningNight/SureOnThisShiningNight-SopDom.mp3",
-    "ByPiece/SureOnThisShiningNight/SureOnThisShiningNight-Acc.mp3",
-    "ByPiece/SureOnThisShiningNight/SureOnThisShiningNight-Ten1Mute.mp3",
-    "ByPiece/SureOnThisShiningNight/SureOnThisShiningNight-Ten2Dom.mp3",
-    "ByPiece/SureOnThisShiningNight/SureOnThisShiningNight-Bas1Mute.mp3"
-  ],
-  "TheRoadHome": [
-    "ByPiece/TheRoadHome/TheRoadHome-Sop2Dom.mp3",
-    "ByPiece/TheRoadHome/TheRoadHome-Ten2Dom.mp3",
-    "ByPiece/TheRoadHome/TheRoadHome-SopSoloDom.mp3",
-    "ByPiece/TheRoadHome/TheRoadHome-Bas2Dom.mp3",
-    "ByPiece/TheRoadHome/TheRoadHome-AltMute.mp3",
-    "ByPiece/TheRoadHome/TheRoadHome-Sop1Mute.mp3",
-    "ByPiece/TheRoadHome/TheRoadHome-Bas1Dom.mp3",
-    "ByPiece/TheRoadHome/TheRoadHome-Bal.mp3",
-    "ByPiece/TheRoadHome/TheRoadHome-Ten1Dom.mp3",
-    "ByPiece/TheRoadHome/TheRoadHome-Sop1Dom.mp3",
-    "ByPiece/TheRoadHome/TheRoadHome-Bas1Mute.mp3",
-    "ByPiece/TheRoadHome/TheRoadHome-Ten1Mute.mp3",
-    "ByPiece/TheRoadHome/TheRoadHome-AltDom.mp3",
-    "ByPiece/TheRoadHome/TheRoadHome-Sop2Mute.mp3",
-    "ByPiece/TheRoadHome/TheRoadHome-Ten2Mute.mp3",
-    "ByPiece/TheRoadHome/TheRoadHome-Bas2Mute.mp3",
-    "ByPiece/TheRoadHome/TheRoadHome-SopSoloMute.mp3"
-  ],
-  "TheresGonnaBeAHomeComin": [
-    "ByPiece/TheresGonnaBeAHomeComin/TheresGonnaBeAHomeComin-BasMute.mp3",
-    "ByPiece/TheresGonnaBeAHomeComin/TheresGonnaBeAHomeComin-BasDom.mp3",
-    "ByPiece/TheresGonnaBeAHomeComin/TheresGonnaBeAHomeComin-AltMute.mp3",
-    "ByPiece/TheresGonnaBeAHomeComin/TheresGonnaBeAHomeComin-Acc.mp3",
-    "ByPiece/TheresGonnaBeAHomeComin/There\u2019s Gonna Be a Homecomin\u2019 - A1 Middles.mp3",
-    "ByPiece/TheresGonnaBeAHomeComin/TheresGonnaBeAHomeComin-Bal.mp3",
-    "ByPiece/TheresGonnaBeAHomeComin/TheresGonnaBeAHomeComin-Ten2Dom.mp3",
-    "ByPiece/TheresGonnaBeAHomeComin/TheresGonnaBeAHomeComin-Sop2Dom.mp3",
-    "ByPiece/TheresGonnaBeAHomeComin/TheresGonnaBeAHomeComin-Sop1aDom.mp3",
-    "ByPiece/TheresGonnaBeAHomeComin/TheresGonnaBeAHomeComin-Ten1Mute.mp3",
-    "ByPiece/TheresGonnaBeAHomeComin/TheresGonnaBeAHomeComin-AltDom.mp3",
-    "ByPiece/TheresGonnaBeAHomeComin/TheresGonnaBeAHomeComin-Sop1aMute.mp3",
-    "ByPiece/TheresGonnaBeAHomeComin/TheresGonnaBeAHomeComin-Ten1Dom.mp3",
-    "ByPiece/TheresGonnaBeAHomeComin/TheresGonnaBeAHomeComin-Ten2Mute.mp3",
-    "ByPiece/TheresGonnaBeAHomeComin/TheresGonnaBeAHomeComin-Sop1bDom.mp3",
-    "ByPiece/TheresGonnaBeAHomeComin/TheresGonnaBeAHomeComin-Alt1Mid.mp3",
-    "ByPiece/TheresGonnaBeAHomeComin/TheresGonnaBeAHomeComin-Sop2Mute.mp3",
-    "ByPiece/TheresGonnaBeAHomeComin/TheresGonnaBeAHomeComin-Sop1bMute.mp3"
-  ],
-  "\u02bbO Makalapua - Diction": [
-    "Diction/\u02bbO Makalapua.mp3"
-  ]
+  "'Twas in the Moon of Wintertime SATB": {
+    "alto1": "AllFiles/'Twas in the Moon of Wintertime SATB - Alto 1 Predominant - Timothy C. Takach.mp3",
+    "alto2": "AllFiles/'Twas in the Moon of Wintertime SATB - Alto 2 Predominant - Timothy C. Takach.mp3",
+    "balancedvoices": "AllFiles/'Twas in the Moon of Wintertime SATB - Balanced Voices - Timothy C. Takach.mp3",
+    "bass1": "AllFiles/'Twas in the Moon of Wintertime SATB - Bass Predominant - Timothy C. Takach.mp3",
+    "bass2": "AllFiles/'Twas in the Moon of Wintertime SATB - Bass Predominant - Timothy C. Takach.mp3",
+    "soprano1": "AllFiles/'Twas in the Moon of Wintertime SATB - Soprano Predominant - Timothy C. Takach.mp3",
+    "soprano2": "AllFiles/'Twas in the Moon of Wintertime SATB - Soprano Predominant - Timothy C. Takach.mp3",
+    "tenor1": "AllFiles/'Twas in the Moon of Wintertime SATB - Tenor 1 Predominant - Timothy C. Takach.mp3",
+    "tenor2": "AllFiles/'Twas in the Moon of Wintertime SATB - Tenor 2 Predominant - Timothy C. Takach.mp3"
+  },
+  "Angels From the Realms of Glory SATB": {
+    "alto1": "AllFiles/Angels From the Realms of Glory SATB - Alto 1 Predominant - arr. Dan Forrest.mp3",
+    "alto2": "AllFiles/Angels From the Realms of Glory SATB - Alto 2 Predominant - arr. Dan Forrest.mp3",
+    "balancedvoices": "AllFiles/Angels From the Realms of Glory SATB - Balanced Voices - arr. Dan Forrest.mp3",
+    "bass1": "AllFiles/Angels From the Realms of Glory SATB - Bass 1 Predominant - arr. Dan Forrest.mp3",
+    "bass2": "AllFiles/Angels From the Realms of Glory SATB - Bass 2 Predominant - arr. Dan Forrest.mp3",
+    "soprano1": "AllFiles/Angels From the Realms of Glory SATB - Soprano 1 Predominant - arr. Dan Forrest.mp3",
+    "soprano2": "AllFiles/Angels From the Realms of Glory SATB - Soprano 2 Predominant - arr. Dan Forrest.mp3",
+    "tenor1": "AllFiles/Angels From the Realms of Glory SATB - Tenor 1 Predominant - arr. Dan Forrest.mp3",
+    "tenor2": "AllFiles/Angels From the Realms of Glory SATB - Tenor 2 Predominant - arr. Dan Forrest.mp3"
+  },
+  "Coventry Carol SSAATTBB": {
+    "alto1": "AllFiles/Coventry Carol SSAATTBB - Alto 1 Predominant - arr. Ola Gjeilo.mp3",
+    "alto2": "AllFiles/Coventry Carol SSAATTBB - Alto 2 Predominant - arr. Ola Gjeilo.mp3",
+    "balancedvoices": "AllFiles/Coventry Carol SSAATTBB - Balanced Voices - arr. Ola Gjeilo.mp3",
+    "bass1": "AllFiles/Coventry Carol SSAATTBB - Bass 1 Predominant - arr. Ola Gjeilo.mp3",
+    "bass2": "AllFiles/Coventry Carol SSAATTBB - Bass 2 Predominant - arr. Ola Gjeilo.mp3",
+    "soprano1": "AllFiles/Coventry Carol SSAATTBB - Soprano 1 Predominant - arr. Ola Gjeilo.mp3",
+    "soprano2": "AllFiles/Coventry Carol SSAATTBB - Soprano 2 Predominant - arr. Ola Gjeilo.mp3",
+    "tenor1": "AllFiles/Coventry Carol SSAATTBB - Tenor 1 Predominant - arr. Ola Gjeilo.mp3",
+    "tenor2": "AllFiles/Coventry Carol SSAATTBB - Tenor 2 Predominant - arr. Ola Gjeilo.mp3"
+  },
+  "DJ Play a Christmas Song SATB": {
+    "alto1": "AllFiles/DJ Play a Christmas Song SATB - Alto Predominant - arr. Alan Billingsley.mp3",
+    "alto2": "AllFiles/DJ Play a Christmas Song SATB - Alto Predominant - arr. Alan Billingsley.mp3",
+    "balancedvoices": "AllFiles/DJ Play a Christmas Song SATB - Balanced Voices - arr. Alan Billingsley.mp3",
+    "bass1": "AllFiles/DJ Play a Christmas Song SATB - Bass Predominant - arr. Alan Billingsley.mp3",
+    "bass2": "AllFiles/DJ Play a Christmas Song SATB - Bass Predominant - arr. Alan Billingsley.mp3",
+    "soprano1": "AllFiles/DJ Play a Christmas Song SATB - Soprano Predominant - arr. Alan Billingsley.mp3",
+    "soprano2": "AllFiles/DJ Play a Christmas Song SATB - Soprano Predominant - arr. Alan Billingsley.mp3",
+    "tenor1": "AllFiles/DJ Play a Christmas Song SATB - Tenor Predominant - arr. Alan Billingsley.mp3",
+    "tenor2": "AllFiles/DJ Play a Christmas Song SATB - Tenor Predominant - arr. Alan Billingsley.mp3"
+  },
+  "In dulci jubilo SSAATBB": {
+    "alto1": "AllFiles/In dulci jubilo SSAATBB - Alto 1 Predominant - Matthew Culloton.mp3",
+    "alto2": "AllFiles/In dulci jubilo SSAATBB - Alto 2 Predominant - Matthew Culloton.mp3",
+    "balancedvoices": "AllFiles/In dulci jubilo SSAATBB - Balanced Voices - Matthew Culloton.mp3",
+    "bass1": "AllFiles/In dulci jubilo SSAATBB - Bass 1 Predominant - Matthew Culloton.mp3",
+    "bass2": "AllFiles/In dulci jubilo SSAATBB - Bass 2 Predominant - Matthew Culloton.mp3",
+    "soprano1": "AllFiles/In dulci jubilo SSAATBB - Soprano 1 Predominant - Matthew Culloton.mp3",
+    "soprano2": "AllFiles/In dulci jubilo SSAATBB - Soprano 2 Predominant - Matthew Culloton.mp3",
+    "tenor1": "AllFiles/In dulci jubilo SSAATBB - Tenor Predominant - Matthew Culloton.mp3",
+    "tenor2": "AllFiles/In dulci jubilo SSAATBB - Tenor Predominant - Matthew Culloton.mp3"
+  },
+  "Jingle ALLLL the Ways (Variations on Jingle Bells) SATB": {
+    "alto1": "AllFiles/Jingle ALLLL the Ways (Variations on Jingle Bells) SATB - Alto Predominant - Arr. Adam and Matt Podd.mp3",
+    "alto2": "AllFiles/Jingle ALLLL the Ways (Variations on Jingle Bells) SATB - Alto Predominant - Arr. Adam and Matt Podd.mp3",
+    "balancedvoices": "AllFiles/Jingle ALLLL the Ways (Variations on Jingle Bells) SATB - Balanced Voices - Arr. Adam and Matt Podd.mp3",
+    "bass1": "AllFiles/Jingle ALLLL the Ways (Variations on Jingle Bells) SATB - Bass Predominant - Arr. Adam and Matt Podd.mp3",
+    "bass2": "AllFiles/Jingle ALLLL the Ways (Variations on Jingle Bells) SATB - Bass Predominant - Arr. Adam and Matt Podd.mp3",
+    "soprano1": "AllFiles/Jingle ALLLL the Ways (Variations on Jingle Bells) SATB - Soprano 1 Predominant - Arr. Adam and Matt Podd.mp3",
+    "soprano2": "AllFiles/Jingle ALLLL the Ways (Variations on Jingle Bells) SATB - Soprano 2 Predominant - Arr. Adam and Matt Podd.mp3",
+    "tenor1": "AllFiles/Jingle ALLLL the Ways (Variations on Jingle Bells) SATB - Tenor Predominant - Arr. Adam and Matt Podd.mp3",
+    "tenor2": "AllFiles/Jingle ALLLL the Ways (Variations on Jingle Bells) SATB - Tenor Predominant - Arr. Adam and Matt Podd.mp3"
+  },
+  "O Come, All Ye Faithful SATB": {
+    "alto1": "AllFiles/O Come, All Ye Faithful SATB - Alto Predominant - arr. Pentatonix and Ben Bram and Jacob Narverud.mp3",
+    "alto2": "AllFiles/O Come, All Ye Faithful SATB - Alto Predominant - arr. Pentatonix and Ben Bram and Jacob Narverud.mp3",
+    "balancedvoices": "AllFiles/O Come, All Ye Faithful SATB - Balanced Voices - arr. Pentatonix and Ben Bram and Jacob Narverud.mp3",
+    "bass1": "AllFiles/O Come, All Ye Faithful SATB - Bass 1 Predominant - arr. Pentatonix and Ben Bram and Jacob Narverud.mp3",
+    "bass2": "AllFiles/O Come, All Ye Faithful SATB - Bass 2 Predominant - arr. Pentatonix and Ben Bram and Jacob Narverud.mp3",
+    "soprano1": "AllFiles/O Come, All Ye Faithful SATB - Soprano 1 Predominant - arr. Pentatonix and Ben Bram and Jacob Narverud.mp3",
+    "soprano2": "AllFiles/O Come, All Ye Faithful SATB - Soprano 2 Predominant - arr. Pentatonix and Ben Bram and Jacob Narverud.mp3",
+    "tenor1": "AllFiles/O Come, All Ye Faithful SATB - Tenor 1 Predominant - arr. Pentatonix and Ben Bram and Jacob Narverud.mp3",
+    "tenor2": "AllFiles/O Come, All Ye Faithful SATB - Tenor 2 Predominant - arr. Pentatonix and Ben Bram and Jacob Narverud.mp3"
+  },
+  "People, Look East SATB": {
+    "alto1": "AllFiles/People, Look East SATB - Alto 1 Predominant - arr. Craig Courtney.mp3",
+    "alto2": "AllFiles/People, Look East SATB - Alto 2 Predominant - arr. Craig Courtney.mp3",
+    "balancedvoices": "AllFiles/People, Look East SATB - Balanced Voices - arr. Craig Courtney.mp3",
+    "bass1": "AllFiles/People, Look East SATB - Bass 1 Predominant - arr. Craig Courtney.mp3",
+    "bass2": "AllFiles/People, Look East SATB - Bass 2 Predominant - arr. Craig Courtney.mp3",
+    "soprano1": "AllFiles/People, Look East SATB - Soprano 1 Predominant - arr. Craig Courtney.mp3",
+    "soprano2": "AllFiles/People, Look East SATB - Soprano 2 Predominant - arr. Craig Courtney.mp3",
+    "tenor1": "AllFiles/People, Look East SATB - Tenor 1 Predominant - arr. Craig Courtney.mp3",
+    "tenor2": "AllFiles/People, Look East SATB - Tenor 2 Predominant - arr. Craig Courtney.mp3"
+  },
+  "Red and Green SATB": {
+    "alto1": "AllFiles/Red and Green SATB - Alto Predominant - Joan Szymko.mp3",
+    "alto2": "AllFiles/Red and Green SATB - Alto Predominant - Joan Szymko.mp3",
+    "balancedvoices": "AllFiles/Red and Green SATB - Balanced Voices - Joan Szymko.mp3",
+    "bass1": "AllFiles/Red and Green SATB - Bass 1 Predominant - Joan Szymko.mp3",
+    "bass2": "AllFiles/Red and Green SATB - Bass 2 Predominant - Joan Szymko.mp3",
+    "soprano1": "AllFiles/Red and Green SATB - Soprano 1 Predominant - Joan Szymko.mp3",
+    "soprano2": "AllFiles/Red and Green SATB - Soprano 2 Predominant - Joan Szymko.mp3",
+    "tenor1": "AllFiles/Red and Green SATB - Tenor 1 Predominant - Joan Szymko.mp3",
+    "tenor2": "AllFiles/Red and Green SATB - Tenor 2 Predominant - Joan Szymko.mp3"
+  },
+  "Sing We Now of Christmas SATB": {
+    "alto1": "AllFiles/Sing We Now of Christmas SATB - Alto 1 Predominant - arr. Kyle Pederson.mp3",
+    "alto2": "AllFiles/Sing We Now of Christmas SATB - Alto 2 Predominant - arr. Kyle Pederson.mp3",
+    "balancedvoices": "AllFiles/Sing We Now of Christmas SATB - Balanced Voices - arr. Kyle Pederson.mp3",
+    "bass1": "AllFiles/Sing We Now of Christmas SATB - Bass Predominant - arr. Kyle Pederson.mp3",
+    "bass2": "AllFiles/Sing We Now of Christmas SATB - Bass Predominant - arr. Kyle Pederson.mp3",
+    "soprano1": "AllFiles/Sing We Now of Christmas SATB - Soprano 1 Predominant - arr. Kyle Pederson.mp3",
+    "soprano2": "AllFiles/Sing We Now of Christmas SATB - Soprano 2 Predominant - arr. Kyle Pederson.mp3",
+    "tenor1": "AllFiles/Sing We Now of Christmas SATB - Tenor Predominant - arr. Kyle Pederson.mp3",
+    "tenor2": "AllFiles/Sing We Now of Christmas SATB - Tenor Predominant - arr. Kyle Pederson.mp3"
+  },
+  "Sleigh Ride SATB": {
+    "alto1": "AllFiles/Sleigh Ride SATB - Alto Predominant - arr. Andy Beck.mp3",
+    "alto2": "AllFiles/Sleigh Ride SATB - Alto Predominant - arr. Andy Beck.mp3",
+    "balancedvoices": "AllFiles/Sleigh Ride SATB - Balanced Voices - arr. Andy Beck.mp3",
+    "bass1": "AllFiles/Sleigh Ride SATB - Bass Predominant - arr. Andy Beck.mp3",
+    "bass2": "AllFiles/Sleigh Ride SATB - Bass Predominant - arr. Andy Beck.mp3",
+    "soprano1": "AllFiles/Sleigh Ride SATB - Soprano Predominant - arr. Andy Beck.mp3",
+    "soprano2": "AllFiles/Sleigh Ride SATB - Soprano Predominant - arr. Andy Beck.mp3",
+    "tenor1": "AllFiles/Sleigh Ride SATB - Tenor Predominant - arr. Andy Beck.mp3",
+    "tenor2": "AllFiles/Sleigh Ride SATB - Tenor Predominant - arr. Andy Beck.mp3"
+  },
+  "Still, Still, Still SATB": {
+    "alto1": "AllFiles/Still, Still, Still SATB - Alto Predominant - Joey Hoelscher.mp3",
+    "alto2": "AllFiles/Still, Still, Still SATB - Alto Predominant - Joey Hoelscher.mp3",
+    "balancedvoices": "AllFiles/Still, Still, Still SATB - Balanced Voices - Joey Hoelscher.mp3",
+    "bass1": "AllFiles/Still, Still, Still SATB - Bass 1 Predominant - Joey Hoelscher.mp3",
+    "bass2": "AllFiles/Still, Still, Still SATB - Bass 2 Predominant - Joey Hoelscher.mp3",
+    "soprano1": "AllFiles/Still, Still, Still SATB - Soprano 1 Predominant - Joey Hoelscher.mp3",
+    "soprano2": "AllFiles/Still, Still, Still SATB - Soprano 2 Predominant - Joey Hoelscher.mp3",
+    "tenor1": "AllFiles/Still, Still, Still SATB - Tenor 1 Predominant - Joey Hoelscher.mp3",
+    "tenor2": "AllFiles/Still, Still, Still SATB - Tenor 2 Predominant - Joey Hoelscher.mp3"
+  },
+  "The First Noel": {
+    "alto1": "AllFiles/The First Noel - Alto 1 Predominant - arr. Dan Forrest.mp3",
+    "alto2": "AllFiles/The First Noel - Alto 2 Predominant - arr. Dan Forrest.mp3",
+    "balancedvoices": "AllFiles/The First Noel - Balanced Voices - arr. Dan Forrest.mp3",
+    "bass1": "AllFiles/The First Noel - Bass Predominant - arr. Dan Forrest.mp3",
+    "bass2": "AllFiles/The First Noel - Bass Predominant - arr. Dan Forrest.mp3",
+    "soprano1": "AllFiles/The First Noel - Soprano 1 Predominant - arr. Dan Forrest.mp3",
+    "soprano2": "AllFiles/The First Noel - Soprano 2 Predominant - arr. Dan Forrest.mp3",
+    "tenor1": "AllFiles/The First Noel - Tenor Predominant - arr. Dan Forrest.mp3",
+    "tenor2": "AllFiles/The First Noel - Tenor Predominant - arr. Dan Forrest.mp3"
+  },
+  "We Need a Little Christmas SATB": {
+    "alto1": "AllFiles/We Need a Little Christmas SATB - Alto Predominant - arr. Mark Hayes.mp3",
+    "alto2": "AllFiles/We Need a Little Christmas SATB - Alto Predominant - arr. Mark Hayes.mp3",
+    "balancedvoices": "AllFiles/We Need a Little Christmas SATB - Balanced Voices - arr. Mark Hayes.mp3",
+    "bass1": "AllFiles/We Need a Little Christmas SATB - Bass Predominant - arr. Mark Hayes.mp3",
+    "bass2": "AllFiles/We Need a Little Christmas SATB - Bass Predominant - arr. Mark Hayes.mp3",
+    "soprano1": "AllFiles/We Need a Little Christmas SATB - Soprano 1 Predominant - arr. Mark Hayes.mp3",
+    "soprano2": "AllFiles/We Need a Little Christmas SATB - Soprano 2 Predominant - arr. Mark Hayes.mp3",
+    "tenor1": "AllFiles/We Need a Little Christmas SATB - Tenor Predominant - arr. Mark Hayes.mp3",
+    "tenor2": "AllFiles/We Need a Little Christmas SATB - Tenor Predominant - arr. Mark Hayes.mp3"
+  },
+  "Where the Light Begins SATB": {
+    "alto1": "AllFiles/Where the Light Begins SATB - Alto Predominant - Susan LaBarr.mp3",
+    "alto2": "AllFiles/Where the Light Begins SATB - Alto Predominant - Susan LaBarr.mp3",
+    "balancedvoices": "AllFiles/Where the Light Begins SATB - Balanced Voices - Susan LaBarr.mp3",
+    "bass1": "AllFiles/Where the Light Begins SATB - Bass 1 Predominant - Susan LaBarr.mp3",
+    "bass2": "AllFiles/Where the Light Begins SATB - Bass 2 Predominant - Susan LaBarr.mp3",
+    "soprano1": "AllFiles/Where the Light Begins SATB - Soprano Predominant - Susan LaBarr.mp3",
+    "soprano2": "AllFiles/Where the Light Begins SATB - Soprano Predominant - Susan LaBarr.mp3",
+    "tenor1": "AllFiles/Where the Light Begins SATB - Tenor Predominant - Susan LaBarr.mp3",
+    "tenor2": "AllFiles/Where the Light Begins SATB - Tenor Predominant - Susan LaBarr.mp3"
+  }
 }
