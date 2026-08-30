@@ -61,6 +61,19 @@ def make_pretty_name(camel_case_name):
         return " ".join(camel_case_to_words(camel_case_name))
 
 
+def clean_key(k: str) -> str:
+    """Removes all non-alpha-numeric characters from the string, except for the '.' in 'mp3'
+
+    >>> clean_key("A B.C.mp3")
+    'ABC.mp3'
+    >>> clean_key("foo.bar.mp3")
+    'foobar.mp3'
+    """
+    if not k.endswith(".mp3"):
+        raise ValueError(f"keys must end with .mp3: {k}")
+    return "".join(c for c in k[:-4] if c.isalnum()) + ".mp3"
+
+
 class VoicePart:
     """
     Constant structure that holds information about one voice part.
@@ -105,10 +118,14 @@ class Song:
     def html_file_name_for_part(self, voice_part):
         return f"{self.name}_{voice_part.key_name}.html"
 
-    def music_path_name_for_part(self, voice_part):
+    def music_path_name_for_part(self, voice_part, is_local):
         if voice_part.key_name not in self.info:
             raise ValueError(f"No part file for {voice_part} in: {self.name}")
-        return self.info[voice_part.key_name]
+        file_name = self.info[voice_part.key_name]
+        if is_local:
+            return file_name
+        else:
+            return clean_key(file_name)
 
 
 def read_json(file_path):
@@ -187,6 +204,7 @@ def main():
                     music_prefix=music_prefix,
                     voice_part=voice_part,
                     song=song,
+                    is_local=is_local,
                 )
                 render_template(jinja2_env, "player.html", player_data, os.path.join(output_dir, song.html_file_name_for_part(voice_part)))
 
