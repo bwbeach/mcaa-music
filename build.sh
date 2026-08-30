@@ -18,7 +18,7 @@ else
 fi
     
 # Run tests
-uv run --python 3.14 --with jinja2 python -m doctest -v tools/*.py 
+uv run --python 3.14 --with jinja2 --with boto3 python -m doctest -v tools/*.py 
 
 # Generate the generated files
 tools/generate.py $* data/songs.json templates dist
