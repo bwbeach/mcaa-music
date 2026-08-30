@@ -18,7 +18,7 @@ import sys
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
-_DISABLED = True
+_DISABLED = False
 
 VOICE_SONG_NOTES = {
     "Komo Mai Kau Mapuna Hoe" : {
@@ -170,9 +170,6 @@ def main():
         print(f"'{output_dir}' is not a directory", file=sys.stderr)
         sys.exit(1)
 
-    if _DISABLED:
-        return
-    
     # Set up template generation
     jinja2_env = Environment(
         loader=template_loader,
