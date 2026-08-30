@@ -14,6 +14,7 @@ import argparse
 import jinja2
 import json
 import os.path
+import re
 import sys
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
@@ -45,20 +46,19 @@ def camel_case_to_words(camel_case):
     return result
 
 
-def make_pretty_name(camel_case_name):
+SATB_PATTERN = re.compile(r"^(.*) S+A+T+B+$")
+
+def make_pretty_name(name: str) -> str:
     """Convert a song folder name to a displayable name.
 
-    >>> make_pretty_name("TheRoadHome")
-    'The Road Home'
-    >>> make_pretty_name("AH2_NewRoof")
-    'At Home 2: New Roof'
+    >>> make_pretty_name("Coventry Carol SSAATTBB")
+    'Coventry Carol'
     """
-    if camel_case_name.startswith("AH"):
-        num = camel_case_name[2]
-        rest = " ".join(camel_case_to_words(camel_case_name[4:]))
-        return f"At Home {num}: {rest}"
+    m = SATB_PATTERN.match(name)
+    if m:
+        return m.group(1)
     else:
-        return " ".join(camel_case_to_words(camel_case_name))
+        return m
 
 
 def clean_key(k: str) -> str:
@@ -111,6 +111,10 @@ class Song:
     def __init__(self, name, song_info):
         self.name = name
         self.info = song_info
+
+    @property
+    def pretty_name(self) -> str:
+        return make_pretty_name(self.name)
 
     def has_part(self, voice_part):
         return voice_part.key_name in self.info
