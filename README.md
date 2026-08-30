@@ -63,6 +63,9 @@ flowchart TD
 I use Cyberduck by hand to sync the music files down from Google Drive into the `music` folder,
 and then to sync them up to the `mcaa-music` bucket in R2.
 
+Starting in 2026, the folder "0 - ALL Files from Chorus Connection" is synced to `music/AllFiles`,
+which then goes to `AllFiles` in R2.
+
 ### Generating `songs.json`
 
 Run by hand after copying music.
@@ -81,6 +84,12 @@ For Cloudflare/Github to run during deployment:
  - `./build.sh`
 
 ## Development
+
+### Setting up Python
+
+```bash
+uv venv --python 3.14
+```
 
 ### Mermaid Diagrams
 
@@ -131,3 +140,8 @@ Add stanza to `wrangler.jsonc`:
     ]
 ```
 
+# TO DO
+
+ - extend `sync_up.py` to also sync down, then rename it
+ - add package info to `sync_up.py`, instead of requirements.txt
+ - handle solo and descant parts
