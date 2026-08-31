@@ -14,8 +14,12 @@ follows a naming convention, one of:
     <songName> - Balanced Voices - <song info>.mp3
     <songName> - Accompaniment Track - <song info>.mp3
 
-Links (hard links) the tracks into the director `to_upload`, with file
+Links (hard links) the tracks into the directory `to_upload`, with file
 names cleaned up to exclude weird characters.
+
+Links (hard links) the tracks into the directory
+`to_chorus_connection`, with file names that include the tags that CC
+wants, such as "(Bass)".
 
 Writes `data/songs.json` with a mapping from song name to a map from
 part name to file name.  For parts without a 1/2 split, both parts
@@ -27,13 +31,16 @@ link to the same file:
             "bass2" : "AllFiles/filename.mp3"
         }
     }
+
 """
 
 import json
 import re
 import sys
 from collections import defaultdict
+from collections.abc import Generator
 from pathlib import Path
+
 
 USAGE = """
 Usage: organize.py
@@ -43,6 +50,8 @@ Reads from music/..., writes to to_upload/... and data/songs.json.
 
 MUSIC_FOLDER = "music"
 TO_UPLOAD_FOLDER = "to_upload"
+TO_CHORUS_CONNECTION_FOLDER = "to_chorus_connection"
+
 
 def usage():
     print(USAGE, file=sys.stderr)
@@ -62,48 +71,73 @@ def clean_file_name(fn: str) -> str:
     return "".join(c for c in fn[:-4] if c.isalnum()) + ".mp3"
 
 
-def get_song_triples(all_files_folder):
-    """Yields (song, part, file) triples.
-    """
-    top_pattern = re.compile("^([^-]*) - ([^-]*) - ([^-]*).mp3$")
-    part_pattern = re.compile("^(alto|bass|tenor|soprano|descant|solo) (1 |2 |3 |solo |)(muted|predominant)$")
-    
-    for file in all_files_folder.iterdir():
-        if file.suffix != ".mp3":
-            raise ValueError(f"File name suffix ({file.suffix}) is not mp3: {file}")
+TOP_PATTERN = re.compile("^([^-]*) - ([^-]*) - ([^-]*).mp3$")
+PART_PATTERN = re.compile("^(alto|bass|tenor|soprano|descant|solo) (1 |2 |3 |solo |)(muted|predominant)$")
 
-        m1 = top_pattern.match(file.name)
-        if not m1:
-            raise ValueError(f"File name does not match top pattern: {file}")
-        song, part_info, _ = m1.groups()
-        song_file = f"AllFiles/{file.name}"
 
-        
-        if part_info == "Balanced Voices":
-            yield song, "balancedvoices", song_file
-        elif part_info == "Accompaniment Track":
+def parts_from_part_info(part_info: str) -> Generator[str, None, None]:
+    if part_info == "Balanced Voices":
+        yield "balancedvoices"
+    elif part_info == "Accompaniment Track":
+        pass
+    else:
+        m2 = PART_PATTERN.match(part_info.lower())
+        if not m2:
+            raise ValueError(f"Do not understand part info: {part_info!r}")
+        part, high_low, volume = m2.groups()
+        if volume == "muted" or volume == "descant" or part == "solo":
             pass
-        else:
-            m2 = part_pattern.match(part_info.lower())
-            if not m2:
-                raise ValueError(f"Do not understand part info: {part_info!r}")
-            part, high_low, volume = m2.groups()
-            if volume == "muted" or volume == "descant" or part == "solo":
+        elif volume == "predominant":
+            if high_low == "1 ":
+                yield part + "1"
+            elif high_low == "2 ":
+                yield part + "2"
+            elif high_low == "":
+                yield part + "1"
+                yield part + "2"
+            elif high_low == "solo ":
                 pass
-            elif volume == "predominant":
-                if high_low == "1 ":
-                    yield song, part + "1", song_file
-                elif high_low == "2 ":
-                    yield song, part + "2", song_file
-                elif high_low == "":
-                    yield song, part + "1", song_file
-                    yield song, part + "2", song_file
-                elif high_low == "solo ":
-                    pass
-                else:
-                    raise ValueError(f"Do not understand part info (high_low): {part_info!r}")
             else:
-                raise ValueError(f"Do not understand part info (volume): {part_info!r}")
+                raise ValueError(f"Do not understand part info (high_low): {part_info!r}")
+        else:
+            raise ValueError(f"Do not understand part info (volume): {part_info!r}")
+
+
+SATB_PATTERN = re.compile(r"^(.*) S+A+T+B+$")
+
+
+def make_pretty_name(name: str) -> str:
+    """Convert a song folder name to a displayable name.
+
+    >>> make_pretty_name("Coventry Carol SSAATTBB")
+    'Coventry Carol'
+    """
+    m = SATB_PATTERN.match(name)
+    if m:
+        return m.group(1)
+    else:
+        return name
+
+     
+class SongInfo:
+    def __init__(self, original_file: Path):
+        m1 = TOP_PATTERN.match(original_file.name)
+        if not m1:
+            raise ValueError(f"File name does not match top pattern: {original_file.name}")
+
+        self.original_file = original_file
+        self.original_name = original_file.name
+        self.clean_name = clean_file_name(original_file.name)
+        self.song_name = make_pretty_name(m1.group(1))
+        self.part_info = m1.group(2)
+        self.parts = sorted(parts_from_part_info(m1.group(2)))
+
+
+def get_songs(all_files_folder):
+    """Yields SongInfo objects for each file in the folder
+    """
+    for file in all_files_folder.iterdir():
+        yield SongInfo(file)
 
 
 def recursive_delete(p: Path):
@@ -117,6 +151,22 @@ def recursive_delete(p: Path):
         raise ValueError(f"not a file or directory: {p}")
 
 
+def chorus_connection_part(part: str) -> str:
+    """Convert 1/2-splits to plain parts.
+
+    >>> chorus_connection_part("bass2")
+    'Bass'
+    >>> chorus_connection_part("balancedvoices")
+    'ALL'
+    """
+    if part == "balancedvoices":
+        return "ALL"
+    else:
+        print("BBB", part)
+        assert part[-1] in ["1", "2"]
+        return part[0].upper() + part[1:-1]
+
+
 def main():
     if len(sys.argv) != 1:
         usage()
@@ -124,6 +174,7 @@ def main():
     music_folder = Path(MUSIC_FOLDER)
     all_files_folder = music_folder.joinpath("AllFiles")
     to_upload_folder = Path(TO_UPLOAD_FOLDER)
+    to_chorus_connection_folder = Path(TO_CHORUS_CONNECTION_FOLDER)
     
     if not all_files_folder.is_dir():
         print(f"'{all_files_folder}' is not a directory", file=sys.stderr())
@@ -133,18 +184,34 @@ def main():
         recursive_delete(to_upload_folder)
     to_upload_folder.mkdir()
 
+    if to_chorus_connection_folder.exists():
+        recursive_delete(to_chorus_connection_folder)
+    to_chorus_connection_folder.mkdir()
+
+    # Process all songs
     song_to_parts = defaultdict(dict)
-    for song, part, file_name in get_song_triples(all_files_folder):
-        clean_name = clean_file_name(file_name)
-        song_to_parts[song][part] = clean_name
+    for song in get_songs(all_files_folder):
+        # Build song data
+        for part in song.parts:
+            song_to_parts[song.song_name][part] = song.clean_name
 
-        link_dst = music_folder.joinpath(file_name)
-        assert link_dst.is_file()
-        link_src = to_upload_folder.joinpath(clean_name)
+        # Link file to upload
+        if 0 < len(song.parts):
+            new_link = to_upload_folder.joinpath(song.clean_name)
+            assert not new_link.exists()
+            new_link.hardlink_to(song.original_file)
+            print(f"linked: {new_link}")
 
-        if not link_src.exists():
-            link_src.hardlink_to(link_dst)
-            print(f"linked {link_src}")
+        # Link file for chorus connection
+        cc_parts = {chorus_connection_part(p) for p in song.parts}
+        for cc_part in cc_parts:
+            cc_name = f"{song.song_name}/{song.song_name} - {song.part_info}"
+            if cc_part != "ALL":
+                cc_name += f" ({cc_part})"
+            cc_link = to_chorus_connection_folder.joinpath(cc_name)
+            cc_link.parent.mkdir(parents=True, exist_ok=True)
+            cc_link.hardlink_to(song.original_file)
+            print(f"linked: {cc_link}")
 
     with open("data/songs.json", "w") as f:
         print(json.dumps(song_to_parts, sort_keys=True, indent=2), file=f)
