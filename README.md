@@ -37,24 +37,28 @@ this one, are kept in Github.
 flowchart TD
    googleDrive[(MCAA Google Drive<br>Concert &gt; Choral Tracks)]
    r2Bucket[(R2 Bucket at Cloudflare<br>mcaa-music)]
-   getNames("get_names.py")
+   organize("organize.py")
    names@{ shape: doc, label: "songs.json<br>Song and File Names<br>(checked into repo)" }
    dist@{ shape: docs, label: "dist<br>static site" }
-   localTracks@{ shape: docs, label: "Local Copy of Tracks<br>(ephemeral)" }
+   localTracks@{ shape: docs, label: "Tracks: Local Copy<br>music/" }
+   toUpload@{ shape: docs, label: "Tracks: to upload<br>to_upload/" }
    cyberduck1(Cyberduck)
-   cyberduck2(Cyberduck)
+   syncUp(sync_up.py)
    
    generate("generate.py")
    static@{ shape: docs, label: "Static Files<br>(in repo)" }
+   template@{ shape: docs, label: "Templates<br>(in repo)" }
 
    googleDrive --> cyberduck1
    cyberduck1 --> localTracks
-   localTracks --> cyberduck2
-   cyberduck2 --> r2Bucket
-   localTracks --> getNames
-   getNames --> names
+   localTracks --> organize
+   organize --> names
+   organize --> toUpload
+   toUpload --> syncUp
+   syncUp --> r2Bucket
    names --> generate
    static --> generate
+   template --> generate
    generate --> dist
 ```
 
@@ -89,7 +93,12 @@ For Cloudflare/Github to run during deployment:
 
 ```bash
 uv venv --python 3.14
+uv pip install -r requirements.txt
 ```
+
+Have this environment active when starting emacs, so it can find ruff.
+
+TODO: document emacs settings for python lsp mode
 
 ### Mermaid Diagrams
 
@@ -142,7 +151,6 @@ Add stanza to `wrangler.jsonc`:
 
 # TO DO
 
- - add linting
  - factor out `clean_key`; make file rearranger
  - extend `sync_up.py` to also sync down, then rename it
  - add package info to `sync_up.py`, instead of requirements.txt
