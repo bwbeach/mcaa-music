@@ -11,7 +11,6 @@ Generates the mcaa-music website.  Inputs are:
 """
 
 import argparse
-import jinja2
 import json
 import os.path
 import re
@@ -58,7 +57,7 @@ def make_pretty_name(name: str) -> str:
     if m:
         return m.group(1)
     else:
-        return m
+        return name
 
 
 def clean_key(k: str) -> str:
