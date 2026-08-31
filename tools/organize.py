@@ -1,31 +1,30 @@
 #!/usr/bin/env -S uv run --python 3.14
+# /// script
+# dependencies = []
+# ///
 
-"""Generates songs.json
+"""Converts track files into files to upload and list of songs/parts.
 
-The `music` folder named on the command line is expected to hold
-an AllFiles directory that holds all of the songs, with names
-following a naming convention.  Each song is named like one of these
+Input is the folder named `music`, which contains the AllFiles
+directory synced down from Google Drive.  Each file is one track that
+follows a naming convention, one of:
 
     <songName> - <part name> [Predominant|Muted] - <song info>.mp3
     <songName> - <part name> [1|2] [Predominant|Muted] - <song info>.mp3
     <songName> - Balanced Voices - <song info>.mp3
     <songName> - Accompaniment Track - <song info>.mp3
 
-The result is a JSON file, mapping song name to: map from part name to
-file name, like this:
+Links (hard links) the tracks into the director `to_upload`, with file
+names cleaned up to exclude weird characters.
+
+Writes `data/songs.json` with a mapping from song name to a map from
+part name to file name.  For parts without a 1/2 split, both parts
+link to the same file:
 
     {
         "Jingle Bells" : {
-            "Bass 1" : "AllFiles/filename.mp3"
-        }
-    }
-
-For parts without a 1/2 split, both parts will be listed with the same file:
-
-    {
-        "Jingle Bells" : {
-            "Bass 1" : "AllFiles/filename.mp3",
-            "Bass 2" : "AllFiles/filename.mp3"
+            "bass1" : "AllFiles/filename.mp3",
+            "bass2" : "AllFiles/filename.mp3"
         }
     }
 """
@@ -33,20 +32,34 @@ For parts without a 1/2 split, both parts will be listed with the same file:
 import json
 import re
 import sys
-
 from collections import defaultdict
 from pathlib import Path
 
-
 USAGE = """
-Usage: get_names.py <musicFolder>
+Usage: organize.py
 
-Assumes that the music folder contains AllFiles/
+Reads from music/..., writes to to_upload/... and data/songs.json.
 """
+
+MUSIC_FOLDER = "music"
+TO_UPLOAD_FOLDER = "to_upload"
 
 def usage():
     print(USAGE, file=sys.stderr)
     sys.exit(1)
+
+
+def clean_file_name(fn: str) -> str:
+    """Removes all non-alpha-numeric characters from the string, except for the '.' in 'mp3'
+
+    >>> clean_file_name("A B.C.mp3")
+    'ABC.mp3'
+    >>> clean_file_name("foo.bar.mp3")
+    'foobar.mp3'
+    """
+    if not fn.endswith(".mp3"):
+        raise ValueError(f"keys must end with .mp3: {fn}")
+    return "".join(c for c in fn[:-4] if c.isalnum()) + ".mp3"
 
 
 def get_song_triples(all_files_folder):
@@ -62,7 +75,7 @@ def get_song_triples(all_files_folder):
         m1 = top_pattern.match(file.name)
         if not m1:
             raise ValueError(f"File name does not match top pattern: {file}")
-        song, part_info, song_info = m1.groups()
+        song, part_info, _ = m1.groups()
         song_file = f"AllFiles/{file.name}"
 
         
@@ -75,11 +88,7 @@ def get_song_triples(all_files_folder):
             if not m2:
                 raise ValueError(f"Do not understand part info: {part_info!r}")
             part, high_low, volume = m2.groups()
-            if volume == "muted":
-                pass
-            elif part == "descant":
-                pass
-            elif part == "solo":
+            if volume == "muted" or volume == "descant" or part == "solo":
                 pass
             elif volume == "predominant":
                 if high_low == "1 ":
@@ -95,25 +104,53 @@ def get_song_triples(all_files_folder):
                     raise ValueError(f"Do not understand part info (high_low): {part_info!r}")
             else:
                 raise ValueError(f"Do not understand part info (volume): {part_info!r}")
-            
+
+
+def recursive_delete(p: Path):
+    if p.is_dir():
+        for sub in p.iterdir():
+            recursive_delete(sub)
+        p.rmdir()
+    elif p.is_file():
+        p.unlink()
+    else:
+        raise ValueError(f"not a file or directory: {p}")
+
 
 def main():
-    if len(sys.argv) != 2:
+    if len(sys.argv) != 1:
         usage()
         
-    music_folder = Path(sys.argv[1])
+    music_folder = Path(MUSIC_FOLDER)
     all_files_folder = music_folder.joinpath("AllFiles")
+    to_upload_folder = Path(TO_UPLOAD_FOLDER)
     
     if not all_files_folder.is_dir():
         print(f"'{all_files_folder}' is not a directory", file=sys.stderr())
         sys.exit(1)
 
-    song_to_parts = defaultdict(dict)
-    for song, part, file in get_song_triples(all_files_folder):
-        song_to_parts[song][part] = file
+    if to_upload_folder.exists():
+        recursive_delete(to_upload_folder)
+    to_upload_folder.mkdir()
 
-    print(json.dumps(song_to_parts, sort_keys=True, indent=2))
-        
-    
+    song_to_parts = defaultdict(dict)
+    for song, part, file_name in get_song_triples(all_files_folder):
+        clean_name = clean_file_name(file_name)
+        song_to_parts[song][part] = clean_name
+
+        link_dst = music_folder.joinpath(file_name)
+        assert link_dst.is_file()
+        link_src = to_upload_folder.joinpath(clean_name)
+
+        if not link_src.exists():
+            link_src.hardlink_to(link_dst)
+            print(f"linked {link_src}")
+
+    with open("data/songs.json", "w") as f:
+        print(json.dumps(song_to_parts, sort_keys=True, indent=2), file=f)
+    print("wrote data/songs.json")
+
+
 if __name__ == "__main__":
     main()
+

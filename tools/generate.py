@@ -60,19 +60,6 @@ def make_pretty_name(name: str) -> str:
         return name
 
 
-def clean_key(k: str) -> str:
-    """Removes all non-alpha-numeric characters from the string, except for the '.' in 'mp3'
-
-    >>> clean_key("A B.C.mp3")
-    'ABC.mp3'
-    >>> clean_key("foo.bar.mp3")
-    'foobar.mp3'
-    """
-    if not k.endswith(".mp3"):
-        raise ValueError(f"keys must end with .mp3: {k}")
-    return "".join(c for c in k[:-4] if c.isalnum()) + ".mp3"
-
-
 class VoicePart:
     """
     Constant structure that holds information about one voice part.
@@ -124,11 +111,7 @@ class Song:
     def music_path_name_for_part(self, voice_part, is_local):
         if voice_part.key_name not in self.info:
             raise ValueError(f"No part file for {voice_part} in: {self.name}")
-        file_name = self.info[voice_part.key_name]
-        if is_local:
-            return file_name
-        else:
-            return clean_key(file_name)
+        return self.info[voice_part.key_name]
 
 
 def read_json(file_path):
@@ -197,7 +180,7 @@ def main():
 
         # Make one player page for each song
         if is_local:
-            music_prefix = "file://" + os.path.abspath("music") + "/"
+            music_prefix = "file://" + os.path.abspath("to_upload") + "/"
         else:
             music_prefix = "/music/"
 

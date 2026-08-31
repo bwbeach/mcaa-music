@@ -1,21 +1,17 @@
 #!/usr/bin/env -S uv run --script
 
-import boto3
-import json
 import os
+from collections.abc import Generator
 
+import boto3
 from dotenv import load_dotenv
-from typing import Generator
-
 
 BUCKET_NAME = "mcaa-music"
 
 
 def local_files() -> Generator[str, None, None]:
-    for root, dirs, files in os.walk("music"):
-        prefix = root[6:]
-        for f in files:
-            yield f"{prefix}/{f}"
+    for root, dirs, files in os.walk("to_upload"):
+        yield from files
 
 
 def remote_files(bucket) -> Generator[str, None, None]:
@@ -49,23 +45,23 @@ def main():
     bucket = s3_resource.Bucket("mcaa-music")
 
     local = set(local_files())
-    clean_local = set(clean_key(k) for k in local)
+    clean_local = {clean_key(k) for k in local}
     remote = set(remote_files(bucket))
 
-    for key in remote:
+    for key in sorted(remote):
+        break
         if key not in clean_local:
             s3_client.delete_object(
                 Bucket=BUCKET_NAME,
                 Key=key,
             )
-            print(f"deleted: {key}")
 
-    for key in local:
+    for key in sorted(local):
         if clean_key(key) not in remote:
             assert key.endswith(".mp3")
-            with open(f"music/{key}", "rb") as f:
+            with open(f"to_upload/{key}", "rb") as f:
                 body = f.read()
-            response = s3_client.put_object(
+            s3_client.put_object(
                 Body=body,
                 Bucket=BUCKET_NAME,
                 ContentType="audio/mp3",

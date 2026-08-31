@@ -2,4 +2,5 @@
 build/
 dist/
 music/
+to_upload/
 tools/__pycache__/
