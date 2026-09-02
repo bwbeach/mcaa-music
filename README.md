@@ -151,6 +151,7 @@ Add stanza to `wrangler.jsonc`:
 
 # TO DO
 
+ - `--delete` option for `sync_up.py`
  - factor out `clean_key`; make file rearranger
  - extend `sync_up.py` to also sync down, then rename it
  - add package info to `sync_up.py`, instead of requirements.txt

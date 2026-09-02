@@ -3,4 +3,5 @@ build/
 dist/
 music/
 to_upload/
+to_chorus_connection/
 tools/__pycache__/
