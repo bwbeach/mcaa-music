@@ -1,5 +1,6 @@
 #!/usr/bin/env -S uv run --script
 
+import argparse
 import os
 from collections.abc import Generator
 
@@ -19,20 +20,18 @@ def remote_files(bucket) -> Generator[str, None, None]:
         yield obj.key
 
 
-def clean_key(k: str) -> str:
-    """Removes all non-alpha-numeric characters from the string, except for the '.' in 'mp3'
-
-    >>> clean_key("A B.C.mp3")
-    'ABC.mp3'
-    >>> clean_key("foo.bar.mp3")
-    'foobar.mp3'
-    """
-    if not k.endswith(".mp3"):
-        raise ValueError(f"keys must end with .mp3: {k}")
-    return "".join(c for c in k[:-4] if c.isalnum()) + ".mp3"
-
-
 def main():
+    parser = argparse.ArgumentParser(
+        prog="sync_up.py",
+        description="Upload files to R2, so they are available to stream",
+    )
+    parser.add_argument(
+        "--delete",
+        action="store_true",
+        help="Enable deletion of files in R2 that aren't in the local directory"
+    )
+    args = parser.parse_args()
+        
     s3_client = boto3.client(
         service_name="s3",
         endpoint_url="https://fdd3cf56706534b30dee40ec7465bace.r2.cloudflarestorage.com",
@@ -45,19 +44,21 @@ def main():
     bucket = s3_resource.Bucket("mcaa-music")
 
     local = set(local_files())
-    clean_local = {clean_key(k) for k in local}
     remote = set(remote_files(bucket))
 
     for key in sorted(remote):
-        break
-        if key not in clean_local:
-            s3_client.delete_object(
-                Bucket=BUCKET_NAME,
-                Key=key,
-            )
+        if key not in local:
+            if args.delete:
+                s3_client.delete_object(
+                    Bucket=BUCKET_NAME,
+                    Key=key,
+                )
+                print(f"deleted in R2: {key}")
+            else:
+                print(f"NOT DELETED: {key}")
 
     for key in sorted(local):
-        if clean_key(key) not in remote:
+        if key not in remote:
             assert key.endswith(".mp3")
             with open(f"to_upload/{key}", "rb") as f:
                 body = f.read()
@@ -65,9 +66,9 @@ def main():
                 Body=body,
                 Bucket=BUCKET_NAME,
                 ContentType="audio/mp3",
-                Key=clean_key(key),
+                Key=key,
             )
-            print(f"uploaded: {clean_key(key)}")
+            print(f"uploaded: {key}")
 
 
 if __name__ == "__main__":
