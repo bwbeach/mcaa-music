@@ -162,7 +162,6 @@ def chorus_connection_part(part: str) -> str:
     if part == "balancedvoices":
         return "ALL"
     else:
-        print("BBB", part)
         assert part[-1] in ["1", "2"]
         return part[0].upper() + part[1:-1]
 
