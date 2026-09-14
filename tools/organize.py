@@ -207,7 +207,7 @@ class SongInfo:
     @property
     def solo_name(self):
         """Name to use for the button in the solos section"""
-        return f"{self.clean_name} {self.part.solo}"
+        return f"{self.song_name} {self.part._solo}"
 
 
 def get_songs(all_files_folder):
@@ -253,11 +253,11 @@ def main():
 
     # Process all songs
     song_to_parts = defaultdict(dict)
+    solo_to_file = {}
     for song in get_songs(all_files_folder):
         # Build song data
         if song.part.solo:
-            pass
-            # song_to_parts[song.song_name]["solo"] = song.solo_name
+            solo_to_file[song.solo_name] = song.clean_name
         else:
             for part in song.part.parts_for_web():
                 song_to_parts[song.song_name][part] = song.clean_name
@@ -281,6 +281,10 @@ def main():
     with open("data/songs.json", "w") as f:
         print(json.dumps(song_to_parts, sort_keys=True, indent=2), file=f)
     print("wrote data/songs.json")
+
+    with open("data/soli.json", "w") as f:
+        print(json.dumps(solo_to_file, sort_keys=True, indent=2), file=f)
+    print("wrote data/soli.json")
 
 
 if __name__ == "__main__":

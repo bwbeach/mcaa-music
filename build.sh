@@ -24,4 +24,4 @@ uv run --python 3.14 --with mypy --with jinja2 --with boto3 --with types-boto3 -
 uv run --python 3.14 --with jinja2 --with boto3 --with dotenv python -m doctest -v tools/*.py 
 
 # Generate the generated files
-tools/generate.py $* data/songs.json templates dist
+tools/generate.py $* data/songs.json data/soli.json templates dist
