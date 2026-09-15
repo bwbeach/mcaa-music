@@ -168,12 +168,7 @@ def main():
         key=lambda s: s.name
     )
 
-    # Definitions of variables used by templates
-    template_data = dict(
-        is_local=is_local,
-        songs=songs,
-    )
-
+    # What's the path to the music folder?
     if is_local:
         music_prefix = "file://" + os.path.abspath("to_upload") + "/"
     else:
@@ -182,31 +177,31 @@ def main():
     # Generate voice part files
     for voice_part in VOICE_PARTS:
         # Make the page that lists all of the songs for this voice part
-        voice_data = dict(
-            songs=songs,
-            voice_part=voice_part,
-        )
+        voice_data = {
+            "songs": songs,
+            "voice_part": voice_part,
+        }
         render_template(jinja2_env, "voice_part.html", voice_data, os.path.join(output_dir, f"{voice_part.key_name}.html"))
 
         # Make one player page for each song
 
         for song in songs:
             if song.html_file_name_for_part(voice_part):
-                player_data = dict(
-                    player_title=song.pretty_name,
-                    player_subtitle=voice_part.pretty_name,
-                    notes=None,
-                    music_prefix=music_prefix,
-                    music_path_name=song.music_path_name_for_part(voice_part, is_local),
-                    back_name=voice_part.key_name,
-                )
+                player_data = {
+                    "player_title": song.pretty_name,
+                    "player_subtitle": voice_part.pretty_name,
+                    "notes": None,
+                    "music_prefix": music_prefix,
+                    "music_path_name": song.music_path_name_for_part(voice_part, is_local),
+                    "back_name": voice_part.key_name,
+                }
                 render_template(jinja2_env, "player.html", player_data, os.path.join(output_dir, song.html_file_name_for_part(voice_part)))
 
     # Generate solo page
-    solo_to_html = dict(
-        (solo_name, f"{clean_name(solo_name)}.html")
-        for solo_name in solo_to_file.keys()
-    )
+    solo_to_html = {
+        solo_name: f"{clean_name(solo_name)}.html"
+        for solo_name in solo_to_file
+    }
     soli_data = {
         "solo_to_html": solo_to_html,
         "solo_titles": sorted(solo_to_file.keys()),

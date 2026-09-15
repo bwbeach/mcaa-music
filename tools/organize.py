@@ -38,9 +38,7 @@ import json
 import re
 import sys
 from collections import defaultdict
-from collections.abc import Generator
 from pathlib import Path
-
 
 USAGE = """
 Usage: organize.py
@@ -51,6 +49,11 @@ Reads from music/..., writes to to_upload/... and data/songs.json.
 MUSIC_FOLDER = "music"
 TO_UPLOAD_FOLDER = "to_upload"
 TO_CHORUS_CONNECTION_FOLDER = "to_chorus_connection"
+
+
+class BugException(Exception):
+    def __init__(self, message: str):
+        super().__init__(message)
 
 
 def usage():
@@ -117,7 +120,7 @@ class PartInfo:
                 case "both": return [f"{self._part}1", f"{self._part}2"]
                 case "upper": return [f"{self._part}1"]
                 case "lower": return [f"{self._part}2"]
-                case _: raise Exception(f"BUG: part not handled: {self._part!r}")
+                case _: raise BugException(f"BUG: part not handled: {self._part!r}")
 
     def part_for_cc(self) -> str:
         if self._part == "all":
