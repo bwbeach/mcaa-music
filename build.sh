@@ -19,6 +19,7 @@ fi
 
 # Linting
 uv run --python 3.14 --with mypy --with jinja2 --with boto3 --with types-boto3 --with dotenv mypy tools/*.py
+uv run --python 3.14 --with ruff ruff check tools/*.py
 
 # Run tests
 uv run --python 3.14 --with jinja2 --with boto3 --with dotenv python -m doctest -v tools/*.py 
