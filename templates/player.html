@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{{ song.pretty_name }}</title>
+    <title>{{ player_title }}</title>
 
     <!-- This snippet copied from fonts.google.com -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,15 +14,15 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1 class="title">{{ song.pretty_name }}</h1>
+    <h1 class="title">{{ player_title }}</h1>
 
-    <h2>{{ voice_part.pretty_name }}</h2>
+    <h2>{{ player_subtitle }}</h2>
     
     {% if notes %}
     <p>{{ notes }}</p>
     {% endif %}
 
-    <audio id="audio-player" controls="" src="{{ music_prefix }}{{ song.music_path_name_for_part(voice_part, is_local)  }}">
+    <audio id="audio-player" controls="" src="{{ music_prefix }}{{ music_path_name }}">
       Your browser does not support the audio element.
     </audio>
 
@@ -38,7 +38,7 @@
       <label> <input type="radio" name="speed" value="1.00" checked="true"> 100% </label>
     </fieldset>
 
-    <a href="{{ voice_part.key_name }}.html" id="back-link" class="choice">Back to Songs</a>
+    <a href="{{ back_name }}.html" id="back-link" class="choice">Go Back</a>
 
     <script>
       const audio = document.getElementById('audio-player');

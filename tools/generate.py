@@ -20,6 +20,10 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 _DISABLED = False
 
+def clean_name(name: str) -> str:
+    return "".join(c for c in name if c.isalnum())
+
+
 def camel_case_to_words(camel_case):
     """Convert a camel-case string into a list of words.
 
@@ -131,6 +135,7 @@ def main():
     # Make arg parser
     parser = argparse.ArgumentParser()
     parser.add_argument("songs", help="JSON file with song data")
+    parser.add_argument("soli", help="JSON file with solo data")
     parser.add_argument("templates", help="Folder containing templates")
     parser.add_argument("output", help="Folder for generated files")
     parser.add_argument("--local", action="store_true", help="Use local paths")
@@ -138,6 +143,7 @@ def main():
     # Parse args
     args = parser.parse_args()
     song_data = read_json(args.songs)
+    solo_to_file = read_json(args.soli)
     template_loader = FileSystemLoader(args.templates)
     output_dir = args.output
     is_local = args.local
@@ -168,10 +174,14 @@ def main():
         songs=songs,
     )
 
+    if is_local:
+        music_prefix = "file://" + os.path.abspath("to_upload") + "/"
+    else:
+        music_prefix = "/music/"
+
     # Generate voice part files
     for voice_part in VOICE_PARTS:
         # Make the page that lists all of the songs for this voice part
-        template = jinja2_env.get_template("voice_part.html")
         voice_data = dict(
             songs=songs,
             voice_part=voice_part,
@@ -179,21 +189,42 @@ def main():
         render_template(jinja2_env, "voice_part.html", voice_data, os.path.join(output_dir, f"{voice_part.key_name}.html"))
 
         # Make one player page for each song
-        if is_local:
-            music_prefix = "file://" + os.path.abspath("to_upload") + "/"
-        else:
-            music_prefix = "/music/"
 
         for song in songs:
             if song.html_file_name_for_part(voice_part):
                 player_data = dict(
+                    player_title=song.pretty_name,
+                    player_subtitle=voice_part.pretty_name,
+                    notes=None,
                     music_prefix=music_prefix,
-                    voice_part=voice_part,
-                    song=song,
-                    is_local=is_local,
+                    music_path_name=song.music_path_name_for_part(voice_part, is_local),
+                    back_name=voice_part.key_name,
                 )
                 render_template(jinja2_env, "player.html", player_data, os.path.join(output_dir, song.html_file_name_for_part(voice_part)))
 
+    # Generate solo page
+    solo_to_html = dict(
+        (solo_name, f"{clean_name(solo_name)}.html")
+        for solo_name in solo_to_file.keys()
+    )
+    soli_data = {
+        "solo_to_html": solo_to_html,
+        "solo_titles": sorted(solo_to_file.keys()),
+    }
+    render_template(jinja2_env, "soli.html", soli_data, os.path.join(output_dir, "soli.html"))
+
+    # Generate solo players
+    for solo_name, solo_file in solo_to_file.items():
+        player_data = {
+            "player_title": solo_name,
+            "player_subtitle": "",
+            "notes": None,
+            "music_prefix": music_prefix,
+            "music_path_name": solo_file,
+            "back_name": "soli",
+        }
+        html_file_name = solo_to_html[solo_name]
+        render_template(jinja2_env, "player.html", player_data, os.path.join(output_dir, html_file_name))
 
 if __name__ == "__main__":
     main()

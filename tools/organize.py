@@ -72,35 +72,107 @@ def clean_file_name(fn: str) -> str:
 
 
 TOP_PATTERN = re.compile("^([^-]*) - ([^-]*) - ([^-]*).mp3$")
-PART_PATTERN = re.compile("^(alto|bass|tenor|soprano|descant|solo) (1 |2 |3 |solo |)(muted|predominant)$")
+PART_PATTERN = re.compile("^(alto|baritone|bass|tenor|soprano|descant|solo) (1 |2 |3 |sol[oi] |)(muted|predominant)$")
 
 
-def parts_from_part_info(part_info: str) -> Generator[str, None, None]:
-    if part_info == "Balanced Voices":
-        yield "balancedvoices"
-    elif part_info == "Accompaniment Track":
-        pass
+class PartInfo:
+    """What part(s) does a recording apply to?
+
+    Holds:
+        part - one of: alto, bass, tenor, soprano, all
+        high_low - one of: upper, lower, both
+        solo - boolean
+
+    >>> PartInfo("soprano", "upper", False).parts_for_web()
+    ['soprano1']
+    >>> PartInfo("soprano", "lower", False).parts_for_web()
+    ['soprano2']
+    >>> PartInfo("soprano", "both", False).parts_for_web()
+    ['soprano1', 'soprano2']
+    """
+
+    def __init__(self, part: str, high_low: str, solo: str | None):
+        if part == "descant":  # TODO - figure out a cleaner way to handle this
+            part = "all"
+            solo = "Descant"
+        if part not in ["all", "alto", "bass", "tenor", "soprano"]:
+            raise ValueError(f"unknown part: {part!r}")
+        if high_low not in ["both", "upper", "lower"]:
+            raise ValueError(f"unknown high_low: {high_low!r}")
+        self._part = part
+        self._high_low = high_low
+        self._solo = solo
+
+    @property
+    def solo(self) -> bool:
+        return self._solo is not None
+
+    def parts_for_web(self) -> list[str]:
+        if self._solo:
+            return []
+        elif self._part == "all":
+            return ["balancedvoices"]
+        else:
+            match self._high_low:
+                case "both": return [f"{self._part}1", f"{self._part}2"]
+                case "upper": return [f"{self._part}1"]
+                case "lower": return [f"{self._part}2"]
+                case _: raise Exception(f"BUG: part not handled: {self._part!r}")
+
+    def part_for_cc(self) -> str:
+        if self._part == "all":
+            return "ALL"
+        else:
+            return self._part.capitalize()
+    
+
+    def __repr__(self):
+        return f"PartInfo({self._part!r}, {self._high_low!r}, {self._solo!r})"
+        
+
+
+def part_from_part_str(part_str: str) -> PartInfo | None:
+    """Parse the string describing which part a recording is for.
+
+    >>> part_from_part_str("Soprano 1 Muted")
+    >>> part_from_part_str("Soprano 1 Predominant")
+    PartInfo('soprano', 'upper', None)
+    >>> part_from_part_str("Descant Predominant")
+    PartInfo('all', 'both', 'Descant')
+    >>> part_from_part_str("Bass soli Predominant")
+    PartInfo('bass', 'both', 'bass soli')
+    """
+    # TODO - clean up
+    if part_str == "Solo Predominant":  # TODO - clean up
+        return PartInfo("all", "both", "Solo")
+    elif part_str == "Balanced Voices":
+        return PartInfo("all", "both", None)
+    elif part_str == "Accompaniment Track":
+        return None
     else:
-        m2 = PART_PATTERN.match(part_info.lower())
+        m2 = PART_PATTERN.match(part_str.lower())
         if not m2:
-            raise ValueError(f"Do not understand part info: {part_info!r}")
+            raise ValueError(f"Do not understand part string: {part_str!r}")
         part, high_low, volume = m2.groups()
-        if volume == "muted" or volume == "descant" or part == "solo":
-            pass
+        if part == "baritone":
+            part = "bass"
+        if volume == "muted": 
+            return None  # TODO: soli
+        elif volume == "descant" or part == "solo":
+            return PartInfo(part, "both", f"{part} {high_low.strip()}")
         elif volume == "predominant":
             if high_low == "1 ":
-                yield part + "1"
+                return PartInfo(part, "upper", None)
             elif high_low == "2 ":
-                yield part + "2"
+                return PartInfo(part, "lower", None)
             elif high_low == "":
-                yield part + "1"
-                yield part + "2"
-            elif high_low == "solo ":
-                pass
+                return PartInfo(part, "both", None)
+            elif high_low == "solo " or high_low == "soli ":
+                return PartInfo(part, "both", f"{part} {high_low.strip()}")
             else:
-                raise ValueError(f"Do not understand part info (high_low): {part_info!r}")
+                raise ValueError(f"Do not understand part info (high_low): {part_str!r}")
         else:
-            raise ValueError(f"Do not understand part info (volume): {part_info!r}")
+            raise ValueError(f"Do not understand part info (volume): {part_str!r}")
 
 
 SATB_PATTERN = re.compile(r"^(.*) S+A+T+B+$")
@@ -130,14 +202,21 @@ class SongInfo:
         self.clean_name = clean_file_name(original_file.name)
         self.song_name = make_pretty_name(m1.group(1))
         self.part_info = m1.group(2)
-        self.parts = sorted(parts_from_part_info(m1.group(2)))
+        self.part = part_from_part_str(m1.group(2))
+
+    @property
+    def solo_name(self):
+        """Name to use for the button in the solos section"""
+        return f"{self.song_name} {self.part._solo}"
 
 
 def get_songs(all_files_folder):
-    """Yields SongInfo objects for each file in the folder
+    """Yields SongInfo objects for each file in the folder that maps to a part we care about.
     """
     for file in all_files_folder.iterdir():
-        yield SongInfo(file)
+        song_info = SongInfo(file)
+        if song_info.part is not None:
+            yield song_info
 
 
 def recursive_delete(p: Path):
@@ -149,21 +228,6 @@ def recursive_delete(p: Path):
         p.unlink()
     else:
         raise ValueError(f"not a file or directory: {p}")
-
-
-def chorus_connection_part(part: str) -> str:
-    """Convert 1/2-splits to plain parts.
-
-    >>> chorus_connection_part("bass2")
-    'Bass'
-    >>> chorus_connection_part("balancedvoices")
-    'ALL'
-    """
-    if part == "balancedvoices":
-        return "ALL"
-    else:
-        assert part[-1] in ["1", "2"]
-        return part[0].upper() + part[1:-1]
 
 
 def main():
@@ -189,32 +253,38 @@ def main():
 
     # Process all songs
     song_to_parts = defaultdict(dict)
+    solo_to_file = {}
     for song in get_songs(all_files_folder):
         # Build song data
-        for part in song.parts:
-            song_to_parts[song.song_name][part] = song.clean_name
+        if song.part.solo:
+            solo_to_file[song.solo_name] = song.clean_name
+        else:
+            for part in song.part.parts_for_web():
+                song_to_parts[song.song_name][part] = song.clean_name
 
         # Link file to upload
-        if 0 < len(song.parts):
-            new_link = to_upload_folder.joinpath(song.clean_name)
-            assert not new_link.exists()
-            new_link.hardlink_to(song.original_file)
-            print(f"linked: {new_link}")
-
+        new_link = to_upload_folder.joinpath(song.clean_name)
+        assert not new_link.exists()
+        new_link.hardlink_to(song.original_file)
+        print(f"linked: {new_link}")
+        
         # Link file for chorus connection
-        cc_parts = {chorus_connection_part(p) for p in song.parts}
-        for cc_part in cc_parts:
-            cc_name = f"{song.song_name}/{song.song_name} - {song.part_info}"
-            if cc_part != "ALL":
-                cc_name += f" ({cc_part})"
-            cc_link = to_chorus_connection_folder.joinpath(cc_name)
-            cc_link.parent.mkdir(parents=True, exist_ok=True)
-            cc_link.hardlink_to(song.original_file)
-            print(f"linked: {cc_link}")
+        cc_part = song.part.part_for_cc()
+        cc_name = f"{song.song_name}/{song.song_name} - {song.part_info}"
+        if cc_part != "ALL":
+            cc_name += f" ({cc_part})"
+        cc_link = to_chorus_connection_folder.joinpath(cc_name)
+        cc_link.parent.mkdir(parents=True, exist_ok=True)
+        cc_link.hardlink_to(song.original_file)
+        print(f"linked: {cc_link}")
 
     with open("data/songs.json", "w") as f:
         print(json.dumps(song_to_parts, sort_keys=True, indent=2), file=f)
     print("wrote data/songs.json")
+
+    with open("data/soli.json", "w") as f:
+        print(json.dumps(solo_to_file, sort_keys=True, indent=2), file=f)
+    print("wrote data/soli.json")
 
 
 if __name__ == "__main__":

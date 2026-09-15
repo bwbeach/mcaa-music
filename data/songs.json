@@ -65,14 +65,23 @@
     "tenor1": "JingleALLLLtheWaysVariationsonJingleBellsSATBTenorPredominantArrAdamandMattPodd.mp3",
     "tenor2": "JingleALLLLtheWaysVariationsonJingleBellsSATBTenorPredominantArrAdamandMattPodd.mp3"
   },
+  "Luminous Beings": {
+    "alto1": "LuminousBeingsSATBAltoPredominantTimothyCTakach.mp3",
+    "alto2": "LuminousBeingsSATBAltoPredominantTimothyCTakach.mp3",
+    "balancedvoices": "LuminousBeingsSATBBalancedVoicesTimothyCTakach.mp3",
+    "bass1": "LuminousBeingsSATBBass1PredominantTimothyCTakach.mp3",
+    "bass2": "LuminousBeingsSATBBass2PredominantTimothyCTakach.mp3",
+    "soprano1": "LuminousBeingsSATBSopranoPredominantTimothyCTakach.mp3",
+    "soprano2": "LuminousBeingsSATBSopranoPredominantTimothyCTakach.mp3",
+    "tenor1": "LuminousBeingsSATBTenorPredominantTimothyCTakach.mp3",
+    "tenor2": "LuminousBeingsSATBTenorPredominantTimothyCTakach.mp3"
+  },
   "O Come, All Ye Faithful": {
     "alto1": "OComeAllYeFaithfulSATBAltoPredominantarrPentatonixandBenBramandJacobNarverud.mp3",
     "alto2": "OComeAllYeFaithfulSATBAltoPredominantarrPentatonixandBenBramandJacobNarverud.mp3",
     "balancedvoices": "OComeAllYeFaithfulSATBBalancedVoicesarrPentatonixandBenBramandJacobNarverud.mp3",
     "bass1": "OComeAllYeFaithfulSATBBass1PredominantarrPentatonixandBenBramandJacobNarverud.mp3",
     "bass2": "OComeAllYeFaithfulSATBBass2PredominantarrPentatonixandBenBramandJacobNarverud.mp3",
-    "descant1": "OComeAllYeFaithfulSATBDescantPredominantarrPentatonixandBenBramandJacobNarverud.mp3",
-    "descant2": "OComeAllYeFaithfulSATBDescantPredominantarrPentatonixandBenBramandJacobNarverud.mp3",
     "soprano1": "OComeAllYeFaithfulSATBSoprano1PredominantarrPentatonixandBenBramandJacobNarverud.mp3",
     "soprano2": "OComeAllYeFaithfulSATBSoprano2PredominantarrPentatonixandBenBramandJacobNarverud.mp3",
     "tenor1": "OComeAllYeFaithfulSATBTenor1PredominantarrPentatonixandBenBramandJacobNarverud.mp3",
@@ -132,6 +141,17 @@
     "soprano2": "StillStillStillSATBSoprano2PredominantJoeyHoelscher.mp3",
     "tenor1": "StillStillStillSATBTenor1PredominantJoeyHoelscher.mp3",
     "tenor2": "StillStillStillSATBTenor2PredominantJoeyHoelscher.mp3"
+  },
+  "The Ditchling Carol": {
+    "alto1": "TheDitchlingCarolSATBAltoPredominantJDavidMoore.mp3",
+    "alto2": "TheDitchlingCarolSATBAltoPredominantJDavidMoore.mp3",
+    "balancedvoices": "TheDitchlingCarolSATBBalancedVoicesJDavidMoore.mp3",
+    "bass1": "TheDitchlingCarolSATBBass1PredominantJDavidMoore.mp3",
+    "bass2": "TheDitchlingCarolSATBBass2PredominantJDavidMoore.mp3",
+    "soprano1": "TheDitchlingCarolSATBSopranoPredominantJDavidMoore.mp3",
+    "soprano2": "TheDitchlingCarolSATBSopranoPredominantJDavidMoore.mp3",
+    "tenor1": "TheDitchlingCarolSATBTenorPredominantJDavidMoore.mp3",
+    "tenor2": "TheDitchlingCarolSATBTenorPredominantJDavidMoore.mp3"
   },
   "The First Noel": {
     "alto1": "TheFirstNoelAlto1PredominantarrDanForrest.mp3",

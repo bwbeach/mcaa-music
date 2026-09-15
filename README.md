@@ -74,7 +74,7 @@ which then goes to `AllFiles` in R2.
 
 Run by hand after copying music.
 
- - `tools/get_names.py music > data/songs.json`
+ - `tools/organize.py`
  - commit the change to git
  
 ### Generating the website
@@ -86,6 +86,12 @@ For local development:
 For Cloudflare/Github to run during deployment:
 
  - `./build.sh`
+ 
+### Uploading to Chorus Connection
+
+For each song:
+
+ - TO DO
 
 ## Development
 
