@@ -109,6 +109,17 @@
     "tenor1": "RedandGreenSATBTenor1PredominantJoanSzymko.mp3",
     "tenor2": "RedandGreenSATBTenor2PredominantJoanSzymko.mp3"
   },
+  "Resonet in Laudibus": {
+    "alto1": "ResonetinLaudibusSATBAlto1PredominantScottLogan.mp3",
+    "alto2": "ResonetinLaudibusSATBAlto2PredominantScottLogan.mp3",
+    "balancedvoices": "ResonetinLaudibusSATBBalancedVoicesScottLogan.mp3",
+    "bass1": "ResonetinLaudibusSATBBass1PredominantScottLogan.mp3",
+    "bass2": "ResonetinLaudibusSATBBass2PredominantScottLogan.mp3",
+    "soprano1": "ResonetinLaudibusSATBSoprano1PredominantScottLogan.mp3",
+    "soprano2": "ResonetinLaudibusSATBSoprano2PredominantScottLogan.mp3",
+    "tenor1": "ResonetinLaudibusSATBTenor1PredominantScottLogan.mp3",
+    "tenor2": "ResonetinLaudibusSATBTenor2PredominantScottLogan.mp3"
+  },
   "Sing We Now of Christmas": {
     "alto1": "SingWeNowofChristmasSATBAlto1PredominantarrKylePederson.mp3",
     "alto2": "SingWeNowofChristmasSATBAlto2PredominantarrKylePederson.mp3",
@@ -163,6 +174,17 @@
     "soprano2": "TheFirstNoelSoprano2PredominantarrDanForrest.mp3",
     "tenor1": "TheFirstNoelTenorPredominantarrDanForrest.mp3",
     "tenor2": "TheFirstNoelTenorPredominantarrDanForrest.mp3"
+  },
+  "We Are the Light": {
+    "alto1": "WeAretheLightSATBAlto1PredominantAndyBeck.mp3",
+    "alto2": "WeAretheLightSATBAlto2PredominantAndyBeck.mp3",
+    "balancedvoices": "WeAretheLightSATBBalancedVoicesAndyBeck.mp3",
+    "bass1": "WeAretheLightSATBBassPredominantAndyBeck.mp3",
+    "bass2": "WeAretheLightSATBBassPredominantAndyBeck.mp3",
+    "soprano1": "WeAretheLightSATBSoprano1PredominantAndyBeck.mp3",
+    "soprano2": "WeAretheLightSATBSoprano2PredominantAndyBeck.mp3",
+    "tenor1": "WeAretheLightSATBTenorPredominantAndyBeck.mp3",
+    "tenor2": "WeAretheLightSATBTenorPredominantAndyBeck.mp3"
   },
   "We Need a Little Christmas": {
     "alto1": "WeNeedaLittleChristmasSATBAltoPredominantarrMarkHayes.mp3",

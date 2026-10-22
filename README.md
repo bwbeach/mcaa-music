@@ -64,8 +64,9 @@ flowchart TD
 
 ### Copying music
 
-I use Cyberduck by hand to sync the music files down from Google Drive into the `music` folder,
-and then to sync them up to the `mcaa-music` bucket in R2.
+I use Cyberduck by hand to sync the music files down from Google Drive into the `music` folder.
+
+The program `sync_up.py` copies the files up to the to the `mcaa-music` bucket in R2.
 
 Starting in 2026, the folder "0 - ALL Files from Chorus Connection" is synced to `music/AllFiles`,
 which then goes to `AllFiles` in R2.
